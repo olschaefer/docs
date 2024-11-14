@@ -52,7 +52,7 @@
     {
       "group": "Overview",
       "pages": [
-        "whatisnadles",
+        "what-is-nadles",
         "quickstart",
         "development"
       ]
