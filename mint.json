@@ -50,6 +50,14 @@
   ],
   "navigation": [
     {
+      "group": "Overview",
+      "pages": [
+        "What is Nadles?",
+        "quickstart",
+        "development"
+      ]
+    },
+    {
       "group": "Get Started",
       "pages": [
         "introduction",
