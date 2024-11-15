@@ -83,6 +83,24 @@
       ]
     },
     {
+      "group": "Payment integration",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "User portal",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Subscriptions",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
       "group": "Endpoint Examples",
       "pages": [
         "api-reference/endpoint/get",
