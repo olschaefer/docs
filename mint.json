@@ -79,25 +79,25 @@
     {
       "group": "Products",
       "pages": [
-        "api-reference/introduction"
+        "essentials/code"
       ]
     },
     {
       "group": "Payment integration",
       "pages": [
-        "api-reference/introduction"
+        "essentials/code"
       ]
     },
     {
       "group": "User portal",
       "pages": [
-        "api-reference/introduction"
+        "essentials/code"
       ]
     },
     {
       "group": "Subscriptions",
       "pages": [
-        "api-reference/introduction"
+        "essentials/code"
       ]
     },
     {
