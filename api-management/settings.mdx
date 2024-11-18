@@ -47,6 +47,8 @@ Link to your website page with the API documentation. Shown to your customers on
 
 ## Nadles Gateway settings
 
+### API subdomain
+
 By default, your API is accessible on Nadles domain and the access URL looks like `https://<subdomain>.p.nadles.com/`
 
 Later, you can configure Nadles API Gateway to use a custom domain for your API, e.g. [`https://api.mydomain.com`.](https://api.mydomain.com.) [Learn more](api-management/custom-domains).
@@ -57,4 +59,20 @@ Later, you can configure Nadles API Gateway to use a custom domain for your API,
 
 * On the dashboard there is now the Nadles API URL that should be used by your customers to make requests to the API.
 
-To attach a custom domain to your API, check out [this page](api-management/custom-domains).
+### Authentication instructions for API users
+
+This is a textual description of how your API users should authenticate when making API calls. The text will be shown to your customers on the checkout and subscription pages.
+
+By default, Nadles Gateway expects the access token to be sent in the `X-Billing-Token` header.
+
+This behavior can be changed: you can flexibly configure Nadles Gateway to look for the access token in any other header (including the standard `Authorization: Bearer` scheme) or in an arbitrary field in JSON request body.
+
+If you decide to configure user authentication differently, make sure to update the **Authentication instructions for API users** field.
+
+See the [Authentication](api-management/authentication) chapter of this documentation to learn more.
+
+## Custom domain name
+
+Nadles allows attaching custom domain names to your API, so that instead of the default `https://<subdomain>.p.nadles.com/` URL, customers use your own domain name to make API calls.
+
+Read more about that in the [Custom domain name](https://docs.nadles.com/api-management/custom-domains/) section of this documentation.
