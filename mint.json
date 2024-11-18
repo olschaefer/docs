@@ -59,7 +59,8 @@
     {
       "group": "API",
       "pages": [
-        "api/add-api.mdx",
+        "api/add-api",
+        
         "essentials/code",
         "essentials/images",
         "essentials/settings",
