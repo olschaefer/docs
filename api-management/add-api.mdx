@@ -20,3 +20,35 @@ Nadles supports importing OpenAPI **v3.0** specifications. It is the easiest way
 </Info>
 
 The OpenAPI definition is imported along with all endpoints. If there are several elements in the "servers" array, the first one is used. After importing, please check the correctness of the configuration on the API Settings page.
+
+## Manually
+
+### Adding a new API
+
+* On the API list page click **"Add new API"**.
+
+* Fill in the details of the API.
+
+**Name**
+
+The name of your API. This name your customers will see on the checkout page.
+
+**Base URL**
+
+The base URL for all API endpoints.
+
+The full URL to which Nadles API Gateway will proxy users' requests, is formed as `Base URL + Endpoint URL`.
+
+<Info>
+  If your API has the following endpoints:
+
+  `https://api.mydomain.com/weather-forecast/`
+  `https://api.mydomain.com/current-weather/`
+
+
+  then `https://api.mydomain.com/` is the base URL.
+</Info>
+
+<Warning>
+  Do not add path parameters or query string parameters&#x20;
+</Warning>
