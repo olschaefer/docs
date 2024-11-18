@@ -84,11 +84,9 @@ To attach a custom domain to your API, check out [this page](api-management/cus
 
 ### Adding endpoints
 
-Go to **"Endpoints"** section and click **"Add new endoint"**.
+* Go to **"Endpoints"** section and click **"Add new endpoint"**.
 
-Choose a HTTP method and enter the endpoint URL relative to the base URL.
-
-
+* Choose a HTTP method and enter the endpoint URL relative to the base URL.
 
 <Info>
   If your API has the following endpoints:
@@ -100,7 +98,7 @@ Choose a HTTP method and enter the endpoint URL relative to the base URL.
   then `https://api.mydomain.com` is the base URL and `/weather-forecast/` and `/current-weather/` are the endpoint URLs.
 </Info>
 
-Path parameters can be used in endpoint URLs. These parameters can be used later to configure billable metrics, request transformations and rejection rules.
+* Path parameters can be used in endpoint URLs. These parameters can be used later to configure billable metrics, request transformations and rejection rules.
 
 <Info>
   You can specify endpoint URLs like this:
@@ -110,3 +108,7 @@ Path parameters can be used in endpoint URLs. These parameters can be used later
 
   In this case, you will be able to configure Nadles API Gateway to limit access to weather forecast for certain cities or charge different amounts for different cities.
 </Info>
+
+* Click **"Submit"**.
+
+Once all endpoints are added, it's time to [set up user authentication](https://docs.nadles.com/api-management/authentication/).
