@@ -7,3 +7,56 @@ icon: 'gear'
 You can always change the configuration of your API on the Settings page.
 
 ## General settings
+
+**Name**
+
+The name of your API. This name your customers will see on the checkout page.
+
+**Base URL**
+
+The base URL for all API endpoints.
+
+The full URL to which Nadles API Gateway will proxy users' requests, is formed as `Base URL + Endpoint URL`.
+
+<Info>
+  If your API has the following endpoints:
+
+  `https://api.mydomain.com/weather-forecast/`
+  `https://api.mydomain.com/current-weather/`
+
+  then `https://api.mydomain.com/` is the base URL.
+</Info>
+
+<Warning>
+  Do not add path parameters or query string to the base URL of your API. That can be done using "Transformations".
+</Warning>
+
+**Short description**
+
+Shown to your customers on the checkout page if no full description is provided.
+
+**Full description**
+
+Shown to your customers on the checkout page.
+
+**Link to your Terms of Service**
+
+Link to your website page with the Terms of Service for your API. Shown to your customers on the checkout page.
+
+**Link to your API documentation**
+
+Link to your website page with the API documentation. Shown to your customers on the checkout page.
+
+## Nadles Gateway settings
+
+By default, your API is accessible on Nadles domain and the access URL looks like `https://<subdomain>.p.nadles.com/`
+
+Later, you can configure Nadles API Gateway to use a custom domain for your API, e.g. [`https://api.mydomain.com`.](https://api.mydomain.com.) [Learn more](api-management/custom-domains).
+
+* Click "Submit".
+
+* After the API is added, you are redirected to the dashboard.
+
+* On the dashboard there is now the Nadles API URL that should be used by your customers to make requests to the API.
+
+To attach a custom domain to your API, check out [this page](api-management/custom-domains).
