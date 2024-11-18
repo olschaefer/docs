@@ -60,6 +60,7 @@
       "group": "API",
       "pages": [
         "api-management/add-api",
+        "api-management/settings",
         "essentials/code",
         "essentials/images",
         "essentials/settings",
