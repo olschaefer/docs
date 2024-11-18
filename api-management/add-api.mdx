@@ -81,3 +81,34 @@ Later, you can configure Nadles API Gateway to use a custom domain for your API,
 * On the dashboard there is now the Nadles API URL that should be used by your customers to make requests to the API.
 
 To attach a custom domain to your API, check out [this page](api-management/custom-domains).
+
+### Adding endpoints
+
+Go to **"Endpoints"** section and click **"Add new endoint"**.
+
+Choose a HTTP method and enter the endpoint URL relative to the base URL.
+
+
+
+<Info>
+  If your API has the following endpoints:
+
+  `https://api.mydomain.com/weather-forecast/`
+  `https://api.mydomain.com/current-weather/`
+
+
+  then `https://api.mydomain.com` is the base URL and `/weather-forecast/` and `/current-weather/` are the endpoint URLs.
+</Info>
+
+Path parameters can be used in endpoint URLs. These parameters can be used later to configure billable metrics, request transformations and rejection rules.
+
+
+
+<Info>
+  You can specify endpoint URLs like this:
+
+  `GET /weather-forecast/{city}`
+
+
+  In this case, you will be able to configure Nadles API Gateway to limit access to weather forecast for certain cities or charge different amounts for different cities.
+</Info>
