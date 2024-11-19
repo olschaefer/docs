@@ -61,6 +61,8 @@
       "pages": [
         "api-management/add-api",
         "api-management/settings",
+        "api-management/custom-domain",
+        "api-management/user-authentication",
         "essentials/code",
         "essentials/images",
         "essentials/settings",
