@@ -63,6 +63,7 @@
         "api-management/settings",
         "api-management/custom-domain",
         "api-management/user-authentication",
+        "api-management/securing-your-backend",
         "essentials/code",
         "essentials/images",
         "essentials/settings",
