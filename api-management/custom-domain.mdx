@@ -1,5 +1,6 @@
 ---
 title: 'Custom domain'
+icon: 'globe-pointer'
 ---
 
 You can attach a custom domain name to an API served via Nadles API Gateway, so that, instead of Nadles domain (like `https://<subdomain>.p.nadles.com/`), users access your API by the domain name owned by you.
@@ -82,19 +83,13 @@ The path prefix is stripped from the request URL before Nadles proxies the reque
 
   `https://weather.execute-api.eu-central.amazonaws.com/`
 
-
-
   then the request
 
   `GET https://api.myapi.com/weather/current.json`
 
-
-
   is actually proxied to your API backend as
 
   `GET https://weather.execute-api.eu-central.amazonaws.com/current.json`
-
-
 
   Note that the `/weather` part was removed from the request URL.
 </Info>
