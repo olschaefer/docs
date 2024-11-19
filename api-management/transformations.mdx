@@ -3,3 +3,42 @@ title: "Request and response transformations"
 description: "API-scoped modifications of requests and responses."
 icon: 'arrow-down-up-across-line'
 ---
+
+## Overview
+
+Transformations allow you to dynamically modify requests and responses. That includes headers, query string parameters and body.
+
+This section describes API-scoped transformations. If a transformation is defined on an API level, it is applied to any requests/responses to that API or its particular endpoint.
+
+One of the use-cases for transformations is to authenticate Nadles API Gateway in your API backend by an API key. [Learn more](https://docs.nadles.com/api-management/exposing-your-api/#configuring-nadles-api-gateway).
+
+To set up request transformations, navigate to **APIs → choose an API → Transformations**.
+
+<Tip>
+  Transformations defined on an API level are always applied first.
+
+  Read about [product-scoped transformations](https://docs.nadles.com/product-modeling/transformations/).
+</Tip>
+
+```mermaid
+graph TD
+    input[\"GET /endpoint1"/]
+
+    apply_api_req_tfs[Apply API-level request transformations]
+    apply_product_req_tfs[Apply product-level request transformations]
+
+    proxy_and_wait(("Proxy modified request
+    and wait for response"))
+
+    apply_api_resp_tfs[Apply API-level response transformations]
+    apply_product_resp_tfs[Apply product-level response transformations]
+
+    send_response[/Send modified response to the user\]
+
+    input --> apply_api_req_tfs
+    apply_api_req_tfs --> apply_product_req_tfs
+    apply_product_req_tfs --> proxy_and_wait
+    proxy_and_wait --> apply_api_resp_tfs
+    apply_api_resp_tfs --> apply_product_resp_tfs
+    apply_product_resp_tfs --> send_response
+  ```
