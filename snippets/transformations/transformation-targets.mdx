@@ -1,0 +1,224 @@
+### Header
+
+The transformation will add/replace/remove headers in a request or response.
+
+Header names are **case-insensitive**.
+
+#### Add
+
+Adds a new header, even if there is already one with the same name.
+
+!!! example
+    Original request:
+
+    ```
+    GET / HTTP/1.1
+    X-Some-Header: some-value
+    ```
+
+    Transformation:
+    ```
+    Add header "X-Some-Header" with value "another-value".
+    ```
+
+    Transformed request:
+    ```
+    GET / HTTP/1.1
+    X-Some-Header: some-value
+    X-Some-Header: another-value
+    ```
+
+
+#### Replace
+
+Replaces header(s) with a new value.
+If there are several headers with the given name, they're removed and replaced with the new value.
+
+!!! example
+    Original request:
+    ```
+    GET / HTTP/1.1
+    X-Some-Header: first-value
+    X-Some-Header: second-value
+    ```
+
+    Transformation:
+    ```
+    Replace header "X-Some-Header" with value "third-value".
+    ```
+
+    Transformed request:
+    ```
+    GET / HTTP/1.1
+    X-Some-Header: third-value
+    ```
+
+#### Remove
+
+Removes all headers with the given name.
+
+!!! example
+    Original request:
+    ```
+    GET / HTTP/1.1
+    X-Some-Header: first-value
+    X-Some-Header: second-value
+    ```
+
+    Transformation:
+    ```
+    Remove header "X-Some-Header".
+    ```
+
+    Transformed request:
+    ```
+    GET / HTTP/1.1
+    ```
+
+### Query string parameter
+
+The transformation will add/replace/remove query string parameters in a request.
+
+Query string parameter names are **case-sensitive**.
+
+#### Add
+
+Adds a new query string parameter, even if there is already one or more with the same name.
+
+!!! example
+    Original request:
+
+    ```
+    GET /?param1=100 HTTP/1.1
+    ```
+
+    Transformation:
+    ```
+    Add query string parameter "param2" with value "test-value".
+    ```
+
+    Transformed request:
+    ```
+    GET /?param1=100&param2=test-value HTTP/1.1
+    ```
+
+
+#### Replace
+
+Replaces query string parameter(s) with a new value.
+If there are several query string parameters with the given name, they're removed and replaced with the new value.
+
+!!! example
+    Original request:
+
+    ```
+    GET /?param1=100 HTTP/1.1
+    ```
+
+    Transformation:
+    ```
+    Replace query string parameter "param1" with value 200.
+    ```
+
+    Transformed request:
+    ```
+    GET /?param1=200 HTTP/1.1
+    ```
+
+
+#### Remove
+
+Removes all query string parameters with the given name.
+
+!!! example
+    Original request:
+
+    ```
+    GET /?param1=100 HTTP/1.1
+    ```
+
+    Transformation:
+    ```
+    Remove query string parameter "param1".
+    ```
+
+    Transformed request:
+    ```
+    GET / HTTP/1.1
+    ```
+
+
+
+### Body
+
+The transformation will add/replace/remove request/response body.
+
+#### Add
+
+Adds a new body. If a request or response already has a body, it's left unchanged.
+
+!!! example
+    Original request:
+
+    ```
+    POST / HTTP/1.1
+    ```
+
+    Transformation:
+    ```
+    Add body with value {"testkey": "testvalue"}
+    ```
+
+    Transformed request:
+    ```
+    POST / HTTP/1.1
+    
+    {"testkey": "testvalue"}
+    ```
+
+
+#### Replace
+
+Replaces the body with a new value. If there is no body yet, it's added.
+
+!!! example
+    Original request:
+    ```
+    POST / HTTP/1.1
+    
+    {"originalkey": "originalvalue"}
+    ```
+
+    Transformation:
+    ```
+    Replace body with value {"newkey": "newvalue"}
+    ```
+
+    Transformed request:
+    ```
+    POST / HTTP/1.1
+    
+    {"newkey": "newvalue"}
+    ```
+
+#### Remove
+
+Removes the body.
+
+!!! example
+    Original request:
+    ```
+    POST / HTTP/1.1
+    
+    {"key": "value"}
+    ```
+
+    Transformation:
+    ```
+    Remove body.
+    ```
+
+    Transformed request:
+    ```
+    POST / HTTP/1.1
+    ```
