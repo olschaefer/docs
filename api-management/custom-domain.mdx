@@ -50,25 +50,45 @@ If you plan to use the same domain name for several APIs, you need to specify th
 In case several APIs are configured to be served on the same domain name, Nadles API Gateway, just like many other API Gateways, will use the path prefix to distinguish between them.
 
 <Info>
-  Example: let's say you plan to set up Weather and Currency APIs with Nadles on the same domain, e.g. `api.myapi.com`.
+  **Example**
 
 
 
-  You'll have to set different path prefixes for them in the Custom domain name section.
+  Let's say, you plan to set up Weather and Currency APIs with Nadles on the same domain, e.g. `api.myapi.com`.
 
-  For Weather API:
+
+
+  You have to set different path prefixes for them in the "Custom domain name" section.
+
+
+
+  **For Weather API:**
 
   * Custom domain name: `api.myapi.com`
 
-  * Path prefix: /weather/
+  * Path prefix: `/weather/`
 
-  When the user makes a request to `https://api.myapi.com/weather/current.json`, the request is forwarded to Weather API.
+  When the user makes a request to `https://api.myapi.com/weather/*`, the request is forwarded to Weather API.
 
-  For currency API:
 
-  * Custom domain name: api.myapi.com
 
-  * Path prefix: /currency/
+  **For currency API:**
 
-  If the user makes a call to `https://api.myapi.com/currency/eur/usd`, the request is proxied to Currency API.
+  * Custom domain name: `api.myapi.com`
+
+  * Path prefix: `/currency/`
+
+  When the user makes a call to `https://api.myapi.com/currency/*`, the request is proxied to Currency API.
+</Info>
+
+The path prefix is stripped from the request URL before Nadles proxies the request to your API backend.
+
+
+
+<Info>
+  **Example**
+
+
+
+
 </Info>
