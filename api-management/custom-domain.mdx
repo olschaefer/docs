@@ -52,15 +52,9 @@ In case several APIs are configured to be served on the same domain name, Nadles
 <Info>
   **Example**
 
-
-
   Let's say, you plan to set up Weather and Currency APIs with Nadles on the same domain, e.g. `api.myapi.com`.
 
-
-
   You have to set different path prefixes for them in the "Custom domain name" section.
-
-
 
   **For Weather API:**
 
@@ -69,8 +63,6 @@ In case several APIs are configured to be served on the same domain name, Nadles
   * Path prefix: `/weather/`
 
   When the user makes a request to `https://api.myapi.com/weather/*`, the request is forwarded to Weather API.
-
-
 
   **For currency API:**
 
@@ -83,12 +75,26 @@ In case several APIs are configured to be served on the same domain name, Nadles
 
 The path prefix is stripped from the request URL before Nadles proxies the request to your API backend.
 
-
-
 <Info>
   **Example**
 
+  If Weather API from the previous example has a base URL
+
+  `https://weather.execute-api.eu-central.amazonaws.com/`
 
 
 
+  then the request
+
+  `GET https://api.myapi.com/weather/current.json`
+
+
+
+  is actually proxied to your API backend as
+
+  `GET https://weather.execute-api.eu-central.amazonaws.com/current.json`
+
+
+
+  Note that the `/weather` part was removed from the request URL.
 </Info>
