@@ -98,7 +98,8 @@ Query string parameter names are **case-sensitive**.
 
 Adds a new query string parameter, even if there is already one or more with the same name.
 
-!!! example
+<Info>
+**Example**
 Original request:
 
 ```
@@ -116,13 +117,16 @@ Transformed request:
 ```
 GET /?param1=100&param2=test-value HTTP/1.1
 ```
+</Info>
+
 
 #### Replace
 
 Replaces query string parameter(s) with a new value.
 If there are several query string parameters with the given name, they're removed and replaced with the new value.
 
-!!! example
+<Info>
+**Example**
 Original request:
 
 ```
@@ -140,12 +144,14 @@ Transformed request:
 ```
 GET /?param1=200 HTTP/1.1
 ```
+</Info>
 
 #### Remove
 
 Removes all query string parameters with the given name.
 
-!!! example
+<Info>
+**Example**
 Original request:
 
 ```
@@ -163,6 +169,7 @@ Transformed request:
 ```
 GET / HTTP/1.1
 ```
+</Info>
 
 ### Body
 
@@ -172,7 +179,8 @@ The transformation will add/replace/remove request/response body.
 
 Adds a new body. If a request or response already has a body, it's left unchanged.
 
-!!! example
+<Info>
+**Example**
 Original request:
 
 ```
@@ -192,12 +200,14 @@ POST / HTTP/1.1
 
 {"testkey": "testvalue"}
 ```
+</Info>
 
 #### Replace
 
 Replaces the body with a new value. If there is no body yet, it's added.
 
-!!! example
+<Info>
+**Example**
 Original request:
 
 ```
@@ -219,12 +229,14 @@ POST / HTTP/1.1
 
 {"newkey": "newvalue"}
 ```
+</Info>
 
 #### Remove
 
 Removes the body.
 
-!!! example
+<Info>
+**Example**
 Original request:
 
 ```
@@ -244,3 +256,4 @@ Transformed request:
 ```
 POST / HTTP/1.1
 ```
+</Info>
