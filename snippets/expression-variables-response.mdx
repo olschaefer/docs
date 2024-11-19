@@ -1,0 +1,43 @@
+##### Response status code
+
+`response.statusCode` — HTTP status code of the response from the upstream.
+
+
+<Info>
+  **Example**
+```javascript
+response.statusCode == 200
+```
+</Info>
+
+---
+
+##### Response headers
+
+`response.headers['header-name']` — Response header values. 
+
+<Warning>
+    Header names are lower-cased.
+</Warning>
+
+<Info>
+  **Example**
+
+```javascript
+response.headers['content-type'] == 'application/json'
+```
+</Info>
+
+---
+
+##### Response body
+
+`response.body` — Raw response body.
+
+<Info>
+  **Example**
+
+```javascript
+response.body.length > 0
+```
+</Info>
