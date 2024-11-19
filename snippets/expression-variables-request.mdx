@@ -1,0 +1,76 @@
+##### Path parameters
+
+`path.params.*` — placeholder values specified in the endpoint URL.
+
+<Note>
+  Placeholder names are case-sensitive.
+</Note>
+
+<Info>
+  **Example**
+  If an endpoint URL is `/resource/{resourceId}`
+
+  and the HTTP request URL is `/resource/801d49c2-ca05-42b1-97af-baf0ddf36ba3`,
+
+  then there will be a variable `path.params.resourceId` with value `"801d49c2-ca05-42b1-97af-baf0ddf36ba3"`.
+
+  ```js
+  path.params.resourceId // "801d49c2-ca05-42b1-97af-baf0ddf36ba3"
+  ```
+</Info>
+
+***
+
+##### Client IP address
+
+`request.remote_addr` — Client IP address.
+
+***
+
+##### Request headers
+
+`request.headers['header-name']` — Request header values.
+
+<Warning>
+  Header names are in lower case.
+</Warning>
+
+<Info>
+  **Example**
+
+  ```javascript
+  request.headers['content-type'] == 'application/json'
+  ```
+</Info>
+
+***
+
+##### Request query string parameters
+
+`request.query['query_string_parameter_name']` — Request query string parameters.
+
+<Warning>
+  Query string parameter names are **case-sensitive**.
+</Warning>
+
+<Info>
+  **Example**
+
+  ```javascript
+  request.query['page'] > 100
+  ```
+</Info>
+
+***
+
+##### Request body
+
+`request.body` — Request body.
+
+<Info>
+  **Example**
+
+  ```javascript
+  request.body.length > 1000
+  ```
+</Info>
