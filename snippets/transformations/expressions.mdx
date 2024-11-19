@@ -1,4 +1,43 @@
----
-title: 'New file'
-description: 'Description of your new file.'
----
+import ExpressionVariablesRequest from '/snippets/expression-variables-request.mdx';
+
+
+### JavaScript
+
+You can use JavaScript expressions in your transformations to make them even more dynamic.
+
+Expressions must evaluate to a new string value for the header/query string parameter/body.
+
+#### Examples
+
+<Info>
+    **Example — News API**
+    Say, you provide an API endpoint that returns contents of a news article. E.g.,
+
+    ```json
+    {
+        "id": "b6355c53-44a3-464b-bc9e-759749cdb3ec",
+        "title": "The title",
+        "content": "Some long article body"
+    }
+    ```
+
+    For your "Free" product, you'd like to return only the first 120 characters of article body.
+
+    With the following transformation added to the "Free" product, you configure Nadles API Gateway to do that:
+
+    ![](/img/product-modeling/transformations/transformations-js-expression-example.png)
+
+    Note that the expression evaluation result is used as the **new value** for the response body.
+</Info
+
+
+<Note>
+    If the original request or response body was compressed using GZip, Deflate or Brotli encoding, Nadles will compress the replaced body as well.
+</Note>
+
+
+#### Expression variables
+
+There are several variables you can use in your expressions.
+
+<ExpressionVariablesRequest />
