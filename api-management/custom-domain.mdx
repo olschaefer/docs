@@ -30,7 +30,45 @@ To verify ownership, you need to add two DNS records.
 
 In this example we're attaching `api.myfirstapi.com`, so the two records to add to `myfirstapi.com` are:
 
-|    | Type  | Name | Value                                      |
-| :- | ----- | ---- | ------------------------------------------ |
-|    | TXT   | @    | nadles\_verification\_8KcfbFwYGieHpqTY8... |
-|    | CNAME | api  | p.nadles.com                               |
+| Type  | Name | Value                                      |
+| :---- | ---- | ------------------------------------------ |
+| TXT   | @    | nadles\_verification\_8KcfbFwYGieHpqTY8... |
+| CNAME | api  | p.nadles.com                               |
+
+After you've added the records, click "Check DNS propagation status" and make sure that the records have propagated to the majority of the servers.
+
+Then click "Verify DNS records" to make Nadles verify the ownership and issue a SSL certificate.
+
+Once the SSL certificate is issued, the status is updated:
+
+And your custom domain name is displayed everywhere instead of the standard access URL assigned by Nadles:
+
+## Path prefix
+
+If you plan to use the same domain name for several APIs, you need to specify the path prefix.
+
+In case several APIs are configured to be served on the same domain name, Nadles API Gateway, just like many other API Gateways, will use the path prefix to distinguish between them.
+
+<Info>
+  Example: let's say you plan to set up Weather and Currency APIs with Nadles on the same domain, e.g. `api.myapi.com`.
+
+
+
+  You'll have to set different path prefixes for them in the Custom domain name section.
+
+  For Weather API:
+
+  * Custom domain name: `api.myapi.com`
+
+  * Path prefix: /weather/
+
+  When the user makes a request to `https://api.myapi.com/weather/current.json`, the request is forwarded to Weather API.
+
+  For currency API:
+
+  * Custom domain name: api.myapi.com
+
+  * Path prefix: /currency/
+
+  If the user makes a call to `https://api.myapi.com/currency/eur/usd`, the request is proxied to Currency API.
+</Info>
