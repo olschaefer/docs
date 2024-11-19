@@ -21,7 +21,7 @@ To set up request transformations, navigate to **APIs → choose an API → Tra
 </Tip>
 
 ```mermaid
-graph TD
+  graph TD
     input[\"GET /endpoint1"/]
 
     apply_api_req_tfs[Apply API-level request transformations]
@@ -41,4 +41,4 @@ graph TD
     proxy_and_wait --> apply_api_resp_tfs
     apply_api_resp_tfs --> apply_product_resp_tfs
     apply_product_resp_tfs --> send_response
-  ```
+```
