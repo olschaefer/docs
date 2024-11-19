@@ -29,3 +29,12 @@ To verify ownership, you need to add two DNS records.
 * CNAME record for the desired subdomain referencing the Nadles API Gateway's domain name, `p.nadles.com`.
 
 In this example we're attaching `api.myfirstapi.com`, so the two records to add to `myfirstapi.com` are:
+
+
+
+
+
+| Type  | Name | Value                                      |
+| ----- | ---- | ------------------------------------------ |
+| TXT   | @    | nadles\_verification\_8KcfbFwYGieHpqTY8... |
+| CNAME | api  | p.nadles.com                               |
