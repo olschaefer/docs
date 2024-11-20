@@ -1,0 +1,126 @@
+---
+title: "F.A.Q."
+icon: 'messages-question'
+---
+
+
+## General
+
+### What do I need to start selling my API with Nadles?
+
+In simple words, you only need to develop an API.
+
+Then Nadles does the rest. Add the API on Nadles, create a new product and choose the endpoints to be included, set up quotas and other limitations, define the pricing model and get a self-service checkout link for your customers.
+
+If you plan to take money for your services, you also need a Stripe or Paddle account. That's it.
+
+
+### What is the difference between Nadles and other billing solutions (e.g. KillBill, Stripe, ChargeBee)?
+
+General-purpose billing solutions focus on the process of issuing a bill.
+
+They allow to define pricing models and issue invoices. Stripe and ChargeBee also perform payment processing.
+
+Nadles, on the other hand, aims to be a turnkey solution covering all aspects of selling API-based products, so that the only thing an API providers needs to do is to develop an API. Billing is one of these aspects.
+
+
+### How does Nadles collect payments?
+
+Nadles has its own billing engine.
+You need to define a pricing model for each product and, after a customer subscribes to your product, Nadles tracks per-customer usage, calculates amounts due and issues invoices. Nadles collects payments for your services automatically.
+
+Nadles uses Stripe and Paddle for payment processing.
+Payments initiated by Nadles are made directly to your Stripe or Paddle account, so you're always in control of your funds.
+
+
+### How can I save on Stripe fees with Nadles?
+
+Each transaction processed with Stripe is subject to several fees.
+The first one is the fee for processing the payment. It varies based on the payment method/country/etc.
+If additional services are used (invoicing, recurring payments, solution for marketplaces), each of them adds its own fee on the transaction. The more products you use, the bigger the fee.
+
+Payments initiated by Nadles use the most basic functionality of Stripe: payment processing and invoices. This ensures the minimum possible fee.
+
+
+
+
+## Products
+
+### Can I combine several APIs into one product? Can I sell API bundles?
+
+Yes, that is possible. Nadles Products are extremely flexible: your customers can subscribe to one API, several APIs or any combination of endpoints from any number of APIs.
+
+If there are some endpoints which you'd like to be accessible by users with premium subscription, you could, for instance, create two products, e.g. "Basic" and "Premium". The "Basic" product would exclude the premium endpoints, which will only be accessible in "Premium" product.
+
+### Will the same API in different products have different access URLs?
+
+No, the URL is assigned to an API, not product. It means, your API is always accessible by the same URL, regardless of what products it's included in.
+
+### Why is it recommended to charge customers based on product-relevant metrics instead of API call volume?
+
+**Short answer:** "Number of API calls per month" is too abstract and it's usually hard to tell which subscription plan will fit customer's application.
+
+Imagine yourself being a customer. You're developing a mobile weather app. You found an API with several endpoints, which perfectly fits your needs.
+
+It returns the current weather, hourly/daily/weekly forecasts, has a location search endpoint, provides access to historical data.
+
+Then you open its pricing page and see this:
+
+| | Basic | Advanced | Enterprise |
+|-|-|-|-|
+| API calls | 1000 / month | 10 000 / month | 100 000 / month |
+| Overages | $0.05 each call | $0.05 each call | $0.05 each call |
+| Price | $5 | $50 | $100 |
+
+
+Not too informative, right? By looking at the table, it's not easy to approximate, which plan would be the best fit for your application.
+
+
+Especially compared to something like this:
+
+| | Basic | Advanced | Enterprise |
+|-|-|-|-|
+| Current weather requests | 100 / month | 1000 / month | 5000 / month |
+| Hourly/daily/weekly forecasts | 10 / week | 100 / week | 200 / week |
+| Historical data requests | 50 / month | 500 / month | 2000 / month |
+| Price | $5 | $50 | $100 |
+
+With Nadles you can easily implement this pricing model.
+
+## Nadles API Gateway
+
+### I'm already using an API gateway. Is that a problem?
+
+It's not a problem. Moreover, we encourage you to use some high-performant API gateway to securely expose your API.
+
+That's a flexible setup which allows you to use all capabilities of general-purpose API gateways 
+together with Nadles monetization features.
+
+### Is Nadles an API gateway?
+
+A high-performance cloud API gateway is one of the components of Nadles, enabling high levels of automation.
+
+Thanks to it, Nadles can automatically authenticate customers, grant access when a subscription is activated, cut access when a hard quota limit is exceeded, impose rate limits, implement premium features, track per-customer usage and turn that data into invoices.
+
+Nadles API gateway also serves as a TLS termination proxy for the APIs. It uses SSL certificates from a trusted vendor, so your customers have a secure connection to your API, and it also allows using self-signed certificates on the API side, so you don't have to buy SSL certificates yourself.
+
+
+### How performant is the engine?
+
+Very performant. Internal engine-added latency lies in the millisecond range. Nadles also uses some optimizations in order to minimize the network latency.
+
+
+### Can I install it on my own server?
+
+Nadles is a cloud-based solution. Currently, there is no on-premise version available.
+
+However, Nadles team can set up a managed dedicated cluster for you, which will be completely separated from the public infrastructure.
+
+
+### How can I add my internal API key to authenticate Nadles API Gateway in my API?
+
+Use request transformations to make Nadles API Gateway send the API key with each request. Read more on [how to securely expose your API](/api-management/securing-your-backend).
+
+### How can I get the user IP?
+
+Check out [this chapter](/api-management/nadles-api-gateway#user-ip).

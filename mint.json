@@ -104,6 +104,12 @@
       "pages": [
         "analytics/query-syntax"
       ]
+    },
+    {
+      "group": "Other",
+      "pages": [
+        "other/faq"
+      ]
     }
   ],
   "footerSocials": {

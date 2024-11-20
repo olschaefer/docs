@@ -18,8 +18,11 @@ icon: 'stopwatch-20'
 
 An additional number of requests accepted in case the rate limit was exceeded by the user.
 
-#### Max burst example
+<Info>
+**Max burst example**
+
 Rate limit: 1 req/s, max burst: 5
 
-If 7 requests hit the Nadles API Gateway at the same moment, the first six requests are passed without a delay, and the last, seventh request is rejected. All subsequent requests are also rejected until the rate of 1 req/s is achieved.
+If 7 requests hit Nadles API Gateway at the same moment, the first six requests are passed without a delay and the last, seventh request is rejected. All subsequent requests are also rejected until the rate of 1 req/s is achieved.
 
+</Info>
