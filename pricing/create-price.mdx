@@ -43,6 +43,15 @@ Recurring prices can be either unmetered or metered.
   calculates the payment amount based on the real usage and bills the customer.
   These pricing models imply that the payment is paid at the end of the billing period and there is no hard limit on the consumption.
 
+  <Tip>
+  For each API call, Nadles can calculate the usage dynamically based on request and response attributes
+  like headers, JSON body values, query string parameters, etc.
+  
+  For example, your API backend can send the number of units consumed by the current request in a response header
+  and Nadles can record this usage and bill for it.
+  
+  [Learn more](/products/billable-metrics#dynamic-usage).
+  </Tip>
 
 ### Flat fee
 
@@ -309,3 +318,30 @@ Since prices are billed independently, you can combine one-off and recurring, me
 Recurring prices are automatically billed according to their settings.
 One-off prices are included in the very first payment and, if top-ups are enabled,
 customers are able to purchase more one-off items later.
+
+## Separate aggregation schedule for usage-based prices
+
+
+Sometimes you might need to aggregate usage and calculate overages daily, but collect a payment only once a month.
+
+This feature allows you to implement that easily.
+Just create a recurring metered price with an aggregation period of 1 day and billing period of 1 month.
+
+Configured this way, Nadles will record the usage every day, calculate and record the amount due for the usage every day,
+but will collect the payment for the total of these amounts only once a month.
+
+
+<Info>
+**Example**
+
+The price: 100 API calls included, \$0.1 for overage calls, aggregated daily. Billed monthly.
+
+On day 1 the customer makes 102 API calls. Nadles records the usage and the amount for the 2 overage calls: \$0.2.
+
+On day 2 the customer makes 133 API calls. Nadles records the usage and the amount for the 33 overage calls: \$3.3.
+
+On day 3 the customer makes 215 API calls. Nadles records the usage and the amount for the 33 overage calls: \$21.5.
+
+On the last day of the month Nadles will charge the customer \$0.2 + \$3.3 + \$21.5 = \$25.
+
+</Info>

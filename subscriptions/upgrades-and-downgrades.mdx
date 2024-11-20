@@ -8,14 +8,23 @@ When you're configuring a product, you can specify, to [which products](/product
 
 Upgrades and downgrades are a complex topic. Read below about different aspects of switching subscriptions to another product.
 
-## Pay per use
 
-When a subscription upgrade or downgrade occurs, usage for the current billing period is aggregated and billed immediately.
+## Unmetered items
+
+When a subscription is switched to a product that contains the same [billable metric](/products/billable-metrics)
+and an [unmetered price](/pricing/create-price#recurring-prices) with the same billing period, the billable metric's usage counter is not reset.
+
+If the new price for the billable metric has a different billing period, the usage counter is reset to zero.
+
+## Metered items
+
+When a subscription upgrade or downgrade occurs, usage for [metered prices](/pricing/create-price#recurring-prices) for the current billing period is aggregated and billed immediately.
 If the target product also contains pay-per-use items, the usage tracking starts from the moment of product switch.
 
 ## One-off items
 
-One-off items remain in the subscription during during upgrades and downgrades, and their usage data is also retained.
+[One-off items](/pricing/create-price#one-off-prices) remain in the subscription during upgrades and downgrades, and their usage data is also retained.
+
 
 ## Anchors
 
@@ -26,10 +35,6 @@ Upgrades and downgrades do not affect the anchor date and the new prices' billin
 
 In order to ensure precise and fair billing for your customers, Nadles applies [prorations](#prorations).
 
-When a subscription is switched to a product that contains the same [billable metric](/products/billable-metrics)
-and an unmetered price with the same billing period, the billable metric's usage counter is not reset.
-
-If the new price for the billable metric has a different billing period, the usage counter is reset to zero.
 
 ## Prorations
 
