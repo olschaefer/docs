@@ -1,0 +1,76 @@
+---
+title: "Stripe"
+icon: 'stripe'
+---
+
+## Overview
+
+[Stripe](https://stripe.com/) integration is one of two options offered by Nadles for payment collection.
+
+Nadles Billing Engine is fully integrated with Stripe and all you need to do in order to start accepting payments is to set up a Stripe account and configure Nadles.
+
+You don't have to create products/prices/customer accounts in Stripe — Nadles does that automatically.
+
+<Info>
+In contrast to API marketplaces, Nadles doesn't act as a middleman in the payment process.
+
+All payments are made directly to your Stripe account.
+</Info>
+
+Nadles Billing Engine automatically calculates amounts due, initiates payments and tracks the status of each payment in order to enable or disable access for customers to your API.
+
+Nadles doesn't use Stripe Billing. All amounts are calculated by Nadles Billing Engine and turned into Stripe invoices.
+
+For each subscription that uses Stripe as payment provider, Nadles automatically creates Stripe invoices and attempts automatic payment collection. If the attempt fails, the customer can pay the invoice manually.
+
+## Prerequisites
+
+You need an active Stripe account.
+
+## Setting up Stripe account
+
+For Nadles to successfully manage your Stripe payments, the following data is required:
+
+* Publishable key
+* Secret key
+* Webhook signing secret
+
+Nadles stores this information in encrypted form, you won't be able to see it again once it's saved.
+
+Follow the steps below to obtain the necessary credentials.
+
+* Navigate to **My User Portal → Payment integration**.
+
+* Open your Stripe account in a separate tab. Register an account on https://stripe.com if you don't have one.
+
+* Navigate to **Developer tools → API keys**.
+
+* Copy the **Publishable key** to the **Publishable key** field on Nadles.
+
+* Click **Create restricted key**.
+
+* When asked "How will you be using this API key", choose **Providing this key to another website**.
+
+* Enter `Nadles` for the name and `https://www.nadles.com/` as URL.
+
+* Click **Create restricted key**.
+
+* Copy the newly created restricted key to the **Secret key** field on Nadles.
+
+* Navigate to **Event destinations** tab on Stripe.
+
+* Click **Create an event destination** (or **Add endpoint** if you already have other endpoints set up).
+
+* Copy the endpoint URL from the field **Your Stripe webhook URL** on Nadles.
+
+* Click **Select events to listen to → Select all events**, then **Add events**.
+
+* Click **Add endpoint**
+
+* Once the endpoint is added, click **Reveal** in the **Signing secret** column.
+
+* Copy the signing secret to the **Webhook signing secret** field on Nadles.
+
+* Click **Save** on Nadles.
+
+* Done! Your payment integration is set up.

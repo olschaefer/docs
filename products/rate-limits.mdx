@@ -1,0 +1,25 @@
+---
+title: "Rate limits"
+icon: 'stopwatch-20'
+---
+
+* Navigate to **Products → choose a product → Limits**.
+
+* Click **Add rate limit**.
+
+  A rate limit can be specified per N seconds/minutes/hours.
+
+* Configure the new rate limit.
+
+  Rate limits can be applied to several endpoints. In that case, the rate limit will be shared by the group of endpoints.
+  The endpoints can be from different APIs, the rate limit will work regardless.
+
+### Max burst
+
+An additional number of requests accepted in case the rate limit was exceeded by the user.
+
+#### Max burst example
+Rate limit: 1 req/s, max burst: 5
+
+If 7 requests hit the Nadles API Gateway at the same moment, the first six requests are passed without a delay, and the last, seventh request is rejected. All subsequent requests are also rejected until the rate of 1 req/s is achieved.
+

@@ -1,0 +1,294 @@
+---
+title: "Create price"
+icon: 'octagon-plus'
+---
+
+Once you've created a new [product](/products/create) and set up [billable metrics](/products/billable-metrics), you can define the pricing model.
+
+## General
+
+To configure product pricing, you need to create one or more prices.
+During the subscription life cycle, each price is billed independently, allowing you to configure complex pricing models.
+However, if several prices have the same billing period, they all are charged in one single payment.
+
+If you, for example, create one price billed monthly and another one billed annually, Nadles will do exactly that: the customer will be charged for both prices according to their billing periods.
+
+
+## Pricing models
+
+Pricing model defines, how Nadles calculates the payment amount based on the number of purchased or consumed billable metrics units.
+
+The following models are supported: flat/setup fee, standard, package, graduated and volume. Below you can find a detailed description for each model.
+
+## Recurring prices
+
+Recurring prices are billed every X days, weeks, months or years.
+They can be used to charge fees for your services periodically.
+
+Recurring prices can be either metered or unmetered.
+
+* **Unmetered** prices charge the full amount for the purchased quantity of billable metrics units.
+  You can configure the default purchase quantity in the price settings and allow customers to adjust it at checkout if needed.
+  
+  The customer pays in advance for the whole pre-purchased volume and cannot use more than that:
+  a hard limit is applied to consumption. Once the customer has used the whole purchased volume,
+  Nadles blocks access until the next billing period.
+
+* **Metered** prices implement pay-per-use models.
+  Nadles tracks actual usage during the subscription life cycle, aggregates it at specified intervals,
+  calculates the payment amount based on the real usage and bills the customer.
+  These pricing models imply that the payment is paid at the end of the billing period and there is no hard limit on the consumption.
+
+
+### Flat fee
+
+Recurring flat fees are used to bill the same amount every time.
+This is the simplest pricing model and does not require a billable metric.
+Nadles simply charges the customer the same amount at the beginning of every billing period.
+
+You can use a flat fee price and [set a hard limit](/products/billable-metrics#set-hard-limit) in the billable metric settings to limit the maximum usage.
+
+Alternatively, you can use unmetered Standard pricing model to impose a limit on the billable metric usage.
+
+
+### Standard
+
+Recurring standard prices charge the same amount for each unit of a billable metric.
+When using this pricing model, you must select a billable metric to which the price applies.
+
+#### Standard unmetered
+
+When creating a standard unmetered price, you need to specifiy the default quantity that is the number of units to be purchased by customers.
+This is a hard limit, the customers are unable to use more than the purchased quantity.
+You can allow them to adjust the quantity at the checkout.
+The limit is reset at the beginning of each billing period.
+
+<Info>
+**Example** 
+
+Say, you have a billable metric "Credits"
+and a standard recurring unmetered price of \$1 per unit monthly.
+
+If you set the price quantity to 100, then the payment amount will be `$1 * 100 = $100/month`
+and the customer will be able to use 100 credits per month.
+</Info>
+
+#### Standard metered
+
+When creating a standard metered price, you don't get to specify the quantity.
+Instead, Nadles tracks usage per subscription, aggregates it on the specified schedule,
+and calculates the payment amount based on the actual quantity.
+
+<Info>
+**Example**
+
+Say, you have a billable metric "Credits"
+and a standard recurring metered price of \$1 per unit monthly.
+
+A customer consumes 150 credits during the first month.
+
+Then, at the end of the month Nadles will charge the customer `$1 * 150 = $150`.
+</Info>
+
+<Tip>
+To limit the maximum usage for metered prices,
+consider [setting a hard limit](/products/billable-metrics#set-hard-limit) in the billable metric settings.
+This may help protect your customers from unexpected overages by capping the maximum consumption.
+</Tip>
+
+
+### Package
+
+Recurring package prices charge the same amount for each package of X units.
+When using this pricing model, you must select a billable metric to which the price applies.
+
+#### Package unmetered
+
+For this pricing model you specify a price per package and the number of units in the package.
+
+The quantity you configure for this model is the number of **units**, available to the customer and not the number of packages.
+
+<Info>
+**Example**
+
+Say, you have a billable metric "Credits"
+and a recurring unmetered package price with 10 units in a package and \$1 per package monthly.
+
+If you set the quantity to 143, Nadles will charge for 15 packages, so `$1 * 15 = $15/month`.
+The customer will be able to use 143 credits per month.
+</Info>
+
+#### Package metered
+
+When creating a package metered price, you don't get to specify the quantity.
+Instead, Nadles tracks usage per subscription, aggregates it on the specified schedule,
+and calculates the payment amount based on the actual quantity.
+
+<Info>
+**Example**
+
+Say, you have a billable metric "Credits"
+and a package recurring metered price of \$5 per package monthly.
+
+A customer consumes 83 credits during the first month.
+
+This equals to `ceil(83 / 10) = 9 packages`.
+
+Then, at the end of the month Nadles will charge the customer `$5 * 9 = $45`.
+</Info>
+
+<Tip>
+To limit the maximum usage for metered prices,
+consider [setting a hard limit](/products/billable-metrics#set-hard-limit) in the billable metric settings.
+This may help protect your customers from unexpected overages by capping the maximum consumption.
+</Tip>
+
+
+### Graduated
+
+Tiered pricing model. Charge different price per unit based on the tier configuration.
+
+#### Graduated unmetered
+
+When creating a graduated unmetered price, you need to specifiy the default quantity that is the number of units to be purchased by customers.
+This is a hard limit, the customers are unable to use more than the purchased quantity. 
+You can allow them to adjust the quantity at the checkout.
+The limit is reset at the beginning of each billing period.
+
+<Info>
+**Example**
+
+Given the following tiers:
+
+**For the first 1-10 units:** \$0.5 per unit + $5 flat fee
+
+**For the next 11-40 units:** \$0.3 per unit
+
+**For the next 41-∞ units:** \$0.1 per unit
+
+If the quantity is set to 50 units, the final payment amount is calculated as:
+
+```
+  10 units * $0.5 + $5 flat fee
+  + 30 units * $0.3
+  + 10 units * $0.1
+
+  = $20
+```
+</Info>
+
+#### Graduated metered
+
+When creating a graduated metered price, you don't have to specify the quantity.
+Instead, Nadles tracks usage per subscription, aggregates it on the specified schedule,
+and calculates the payment amount based on the actual quantity using the "graduated" strategy.
+
+<Info>
+**Example**
+
+Given the following tiers:
+
+**For the first 1-10 units:** \$0.5 per unit + $5 flat fee
+
+**For the next 11-40 units:** \$0.3 per unit
+
+**For the next 41-∞ units:** \$0.1 per unit
+
+If the customer uses 64 credits during the first month, then the final payment amount is calculated as:
+
+```
+  10 units * $0.5 + $5 flat fee
+  + 30 units * $0.3
+  + 24 units * $0.1
+
+  = $21.4
+```
+</Info>
+
+<Tip>
+To limit the maximum usage for metered prices,
+consider [setting a hard limit](/products/billable-metrics#set-hard-limit) in the billable metric settings.
+This may help protect your customers from unexpected overages by capping the maximum consumption.
+</Tip>
+
+
+
+
+### Volume
+
+Apply different price per unit based on the total number of units.
+
+#### Volume unmetered
+
+When creating a volume unmetered price, you need to specifiy the default quantity that is the number of units to be purchased by customers.
+This is a hard limit, the customers are unable to use more than the purchased quantity. 
+You can allow them to adjust the quantity at the checkout.
+The limit is reset at the beginning of each billing period.
+
+<Info>
+**Example**
+
+With the following tiers:
+
+**Total 1-100 units:** \$0.5 per unit + \$5 flat fee
+
+**Total 101-200 units:** \$0.3 per unit
+
+**Total 201-∞ units:** \$0.1 per unit
+
+If the quantity is set to 50 units, it falls into the `1-100` tier and the final payment amount is calculated as:
+
+`50 units * $0.5 + $5 flat fee = $30`
+
+For 140 units (tier `101-200`), the final amount is calculated as:
+
+`140 units * $0.3 = $42`
+</Info>
+
+
+#### Volume metered
+
+When creating a volume metered price, you don't have to specify the quantity.
+Instead, Nadles tracks usage per subscription, aggregates it on the specified schedule,
+and calculates the payment amount based on the actual quantity using the "volume" strategy.
+
+<Info>
+**Example**
+
+With the following tiers:
+
+**Total 1-100 units:** \$0.5 per unit + \$5 flat fee
+
+**Total 101-200 units:** \$0.3 per unit
+
+**Total 201-∞ units:** \$0.1 per unit
+
+If the customer used 50 units, the consumption falls into the `1-100` tier and the final payment amount is calculated as:
+
+`50 units * $0.5 + $5 flat fee = $30`
+
+If the customer used 140 units, the consumption falls into the `101-200` tier and the final amount is calculated as:
+
+`140 units * $0.3 = $42`
+</Info>
+
+## One-off prices
+
+One-off prices are charged once. That is useful in case you would like to charge set up fees or use prepaid pricing model.
+
+Unlike recurring, one-off prices allow your customers to buy a certain number of non-expiring units once and use them as needed.
+
+You can configure, whether it is possible for customers to top up later.
+
+One-off prices support the same pricing models as recurring prices (setup fee, standard, package, graduated, volume), with one difference: one-off prices are always unmetered.
+
+It means, that they represent a hard limit on consumption and customers always pay for the full purchased quantity.
+
+
+## Combining prices
+
+Since prices are billed independently, you can combine one-off and recurring, metered and unmetered prices in a single product.
+
+Recurring prices are automatically billed according to their settings.
+One-off prices are included in the very first payment and, if top-ups are enabled,
+customers are able to purchase more one-off items later.

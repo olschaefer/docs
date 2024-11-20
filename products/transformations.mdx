@@ -1,6 +1,6 @@
 ---
 title: "Request and response transformations"
-description: "API-scoped modifications of requests and responses."
+description: "Product-scoped modifications of requests and responses."
 icon: 'arrow-down-up-across-line'
 ---
 
@@ -13,24 +13,20 @@ import ExpressionsSnippet from '/snippets/transformations/expressions.mdx';
 
 Transformations allow you to dynamically modify requests and responses. That includes headers, query string parameters and body.
 
-This section describes API-scoped transformations. 
-Transformations defined on an API level are applied to requests/responses to that API, regardless of the product the customer is subscribed to.
-
+Product-scoped transformations are applied to requests/responses only if the customer is subscribed to this product.
 
 <Tip>
   Transformations defined on an API level are always applied first.
 
-  Read about [product-scoped transformations](/products/transformations).
+  Read about [API-scoped transformations](/api-management/transformations).
 </Tip>
-
-
-One of the use-cases for transformations is to authenticate Nadles API Gateway in your API backend by API key. Learn how to [configure Nadles to send an API key to your backend](/api-management/securing-your-backend).
 
 ## How it works
 
 <HowItWorks />
 
-To configure transformations, navigate to **APIs → select API → Transformations**.
+
+To configure transformations, navigate to **Products → select product → Transformations**.
 
 <TransformationTargets />
 

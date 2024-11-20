@@ -2,12 +2,9 @@
 
 `path.params.*` — placeholder values specified in the endpoint URL.
 
-<Note>
-  Placeholder names are case-sensitive.
-</Note>
-
 <Info>
   **Example**
+  
   If an endpoint URL is `/resource/{resourceId}`
 
   and the HTTP request URL is `/resource/801d49c2-ca05-42b1-97af-baf0ddf36ba3`,
@@ -18,6 +15,10 @@
   path.params.resourceId // "801d49c2-ca05-42b1-97af-baf0ddf36ba3"
   ```
 </Info>
+
+<Warning>
+  Placeholder names are **case-sensitive**.
+</Warning>
 
 ***
 
@@ -31,10 +32,6 @@
 
 `request.headers['header-name']` — Request header values.
 
-<Warning>
-  Header names are in lower case.
-</Warning>
-
 <Info>
   **Example**
 
@@ -43,15 +40,17 @@
   ```
 </Info>
 
+
+<Warning>
+  Header names must be in lower case.
+</Warning>
+
+
 ***
 
 ##### Request query string parameters
 
 `request.query['query_string_parameter_name']` — Request query string parameters.
-
-<Warning>
-  Query string parameter names are **case-sensitive**.
-</Warning>
 
 <Info>
   **Example**
@@ -60,6 +59,10 @@
   request.query['page'] > 100
   ```
 </Info>
+
+<Warning>
+  Query string parameter names are **case-sensitive**.
+</Warning>
 
 ***
 

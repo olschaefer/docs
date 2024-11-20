@@ -1,0 +1,47 @@
+---
+title: "Rejection rules"
+icon: 'ban'
+---
+
+import ExpressionVariablesRequest from '/snippets/expression-variables-request.mdx';
+
+Rejection rules are JavaScript expressions that let Nadles API Gateway decide, whether current request should be rejected.
+
+If an expression evaluates to true, Nadles API Gateway will reject the request.
+
+It's useful for implementing premium features and impose limitations on input parameters.
+
+Some use cases for rejection rules:
+
+Reject request if:
+
+* The customer tries to request more than 100 elements:
+
+  `request.query['num'] > 100`
+  
+* The customer tries to request more than 10 pages of results:
+  
+  `request.query['page'] > 10`
+
+* Number of elements in the input JSON array is bigger than 50:
+  
+  `JSON.parse(request.body).batch.length > 50`
+
+
+One rejection rule can be applied to several endpoints. The expression will be evaluated for each call to any of the selected endpoints and if the result is true, the call will be rejected.
+
+## Add rejection rule
+
+* Click **Add rejection rule**.
+
+* Enter the expression, select the endpoints this rule applies to, and click **Save**.
+
+* The rejection rule is now added to the product.
+
+## Expression variables
+
+There is a number of variables that can be used in the expression.
+
+Note that response variables are not available, since rejection rules are evaluated **before** proxying the request.
+
+<ExpressionVariablesRequest />

@@ -1,6 +1,6 @@
 ---
 title: "Add API"
-description: "You can add a new API in two ways: by importing an OpenAPI specification or manually."
+description: "You can add a new API either by importing an OpenAPI specification or by filling out the form manually."
 icon: "circle-plus"
 ---
 
@@ -15,7 +15,7 @@ Nadles supports importing OpenAPI **v3.0** specifications. It is the easiest way
 <Info>
   By default, Nadles let's you choose a subdomain for your API, so the URL to access your API looks like `https://<subdomain>.p.nadles.com/`
 
-  Later, you can configure Nadles API Gateway to use a custom domain for your API, e.g. `https://api.mydomain.com`. [Learn more](https://docs.nadles.com/api-management/custom-domains/).
+  Later, you can configure Nadles API Gateway to use a custom domain for your API, e.g. `https://api.mydomain.com`. [Learn more](/api-management/custom-domain).
 </Info>
 
 The OpenAPI definition is imported along with all endpoints. If there are several elements in the "servers" array, the first one is used. After importing, please check the correctness of the configuration on the API Settings page.

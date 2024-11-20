@@ -1,0 +1,45 @@
+---
+title: "Nadles API gateway"
+icon: "webhook"
+---
+
+## Service headers
+
+Nadles adds the following headers to each authenticated request proxied to your API:
+
+* `X-Billing-Subscription-Id` — unique subscription ID.
+* `X-Billing-Customer-Id` — unique customer ID, this field can have the same value for different subscriptions.
+* `X-Billing-Request-Id` — unique request ID.
+
+You can use these headers for tracing and monitoring purposes.
+
+## Cross-Origin Resource Sharing (CORS)
+
+Setting correct CORS headers needs to be done in the API itself.
+
+By default, Nadles passes all unauthenticated OPTIONS requests to your API backend. Make sure to return correct headers in response to those requests.
+
+## User IP
+
+The actual user IP is the first IP address in the `X-Forwarded-For` header.
+
+E.g. if the header looks like
+
+```
+X-Forwarded-For: 77.123.24.12,8.8.9.9,31.31.31.31
+```
+
+then `77.123.24.12` is the actual IP of the user making the API call.
+
+## Stored information
+
+Nadles stores the following information about each request and response:
+
+* Request and response headers
+* Request URL
+* Subscription-related IDs
+* Usage data for quotas
+* Timings
+* Response status code
+
+It does not store or log request or response bodies.

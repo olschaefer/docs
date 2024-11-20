@@ -1,0 +1,30 @@
+---
+title: "Modifying products"
+icon: 'pen-to-square'
+---
+
+
+As a general rule, changes in products don't affect existing subscriptions.
+
+However, there are several exceptions.
+
+## Adding and removing endpoints
+
+When you add a new endpoint to the product or remove an existing one, the following rules apply:
+
+* If an endpoint is added to a product, it appears in existing subscriptions to that product too.
+
+* If this endpoint is then deleted, it gets deleted from the existing subscriptions too.
+
+* Endpoints added to a product before a subscription is created remain part of the subscription even if the endpoint is later deleted from the product.
+
+## Adding and removing billable metrics
+
+* If you add new billable metrics/rate limits to the product, they don't appear in the existing subscriptions.
+
+* If you delete a billable metric from the product, it doesn't get deleted from existing subscriptions.
+
+
+## Subscription upgrades/downgrades
+
+Whenever you modify the **Allow switching to following products** config of a product, it has effect on existing subscriptions.

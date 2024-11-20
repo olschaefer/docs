@@ -2,7 +2,6 @@
 
 `response.statusCode` — HTTP status code of the response from the upstream.
 
-
 <Info>
   **Example**
 ```javascript
@@ -16,10 +15,6 @@ response.statusCode == 200
 
 `response.headers['header-name']` — Response header values. 
 
-<Warning>
-    Header names are lower-cased.
-</Warning>
-
 <Info>
   **Example**
 
@@ -27,6 +22,10 @@ response.statusCode == 200
 response.headers['content-type'] == 'application/json'
 ```
 </Info>
+
+<Warning>
+    Header names must be in lower case.
+</Warning>
 
 ---
 

@@ -1,0 +1,157 @@
+---
+title: "Paddle"
+icon: 'star-christmas'
+iconType: 'duotone'
+---
+
+## Overview
+
+Paddle integration is another option offered by Nadles for payment collection.
+
+[Paddle](https://paddle.com/) is a payment solution provider serving as [Merchant of Record](https://www.paddle.com/blog/what-is-merchant-of-record).
+
+Using a merchant of record allows you to collect payments internationally without the need to care about different taxation rules between countries.
+
+Nadles adds missing usage-based billing functionality to Paddle: it records usage data for each subscription and creates corresponding charges in Paddle, so that customers are correctly billed for the actual usage at the end of each billing period.
+
+<Info>
+In contrast to API marketplaces, Nadles doesn't act as a middleman in the payment process.
+
+All payments are made directly to your Paddle account.
+</Info>
+
+## Prerequisites
+
+* Active Paddle account
+* [SaaS taxable category](https://www.paddle.com/help/start/intro-to-paddle/why-do-i-need-to-select-'taxable-categories'-for-my-products) approved for your account by Paddle
+* Your own domain name [approved by Paddle](https://www.paddle.com/help/start/account-verification/what-is-domain-verification)
+* If you're **NOT** using this domain for your user portal on Nadles, you also need an [overlay checkout page](#setting-up-checkout-page) set up on your own domain
+
+
+## Setting up Paddle account
+
+For Nadles to successfully manage your Paddle products and subscriptions, the following data is required:
+
+* Your Paddle seller ID
+* API key
+* Webhook secret key
+
+Nadles stores this information in encrypted form, you won't be able to see it again once it's saved.
+
+Follow the steps below to obtain the necessary credentials.
+
+### API key and seller ID
+* On Nadles, navigate to **My User Portal → Payment integration**.
+* Open Paddle in a new tab and navigate to **Developer tools → Authentication**.
+* Copy your seller ID into the **Your Paddle vendor ID** field on Nadles.
+* Click **Generate API Key**.
+* Enter `Nadles` as key name.
+* Copy the generated key into the **API key** field on Nadles.
+
+### Webhook
+
+* On Paddle, navigate to **Developer tools → Notifications**.
+* Click **New destination**.
+* Enter `Nadles` as description.
+* Select **Notification type** `Webhook`.
+* Copy the endpoint URL from the field **Your Paddle webhook URL** on Nadles into the **URL** field on Paddle.
+* Check the **Select all events** checkbox.
+* Click **Save destination**.
+* After that, click **Edit destination** and copy the webhook signing secret into the **Webhook secret key** field on Nadles.
+* Save the Paddle integration form on Nadles.
+
+## Setting up payment page
+
+Paddle requires you to set up a checkout page on your own domain where customers will enter payment details and finish the payment.
+
+### In Nadles User Portal
+
+If you enabled Nadles User Portal for your account and attached a custom domain to it,
+you can use a pre-built payment page provided by Nadles.
+
+* Make sure the custom domain that you attached to the user portal is approved in your Paddle account.
+* On Paddle, navigate to **Developer tools → Authentication**.
+* Click **Generate client-side token**.
+* Enter `Nadles` as name.
+* Click **Generate** and copy the generated token.
+* Navigate to **Checkout → Checkout settings**.
+* In the field **Default payment link** enter
+  
+  `https://<user-portal-domain>/consumer/checkout/paddle/<generated-client-side-token>`
+
+* Done. Now Paddle will redirect your customers to the payment page provided by Nadles.
+* Don't forget to customize the style of your Paddle checkout form to match the user portal. For that, navigate to **Checkout → Checkout settings → Inline**.
+
+### On your website
+
+If you aren't using Nadles User Portal or didn't attach a custom domain to it, you can create a payment page on your website.
+Nadles will redirect your customers to this page for payment.
+
+In order to accept payments via Paddle, you need to build an [overlay checkout page](https://developer.paddle.com/build/checkout/build-overlay-checkout) that [accepts Paddle transaction ID](https://developer.paddle.com/build/transactions/pass-transaction-checkout) and host it on your domain.
+
+The overlay checkout page can be as simple as a single HTML page with a bit of JS code.
+
+Let's say you own the domain name `myfirstapi.example` and plan to host the Paddle checkout page on `https://myfirstapi.example/paddle-checkout`
+
+Follow the steps below to get your Paddle checkout up and running.
+
+#### Domain verification
+
+First, get `myfirstapi.example` approved by Paddle. [What is domain verification?
+](https://www.paddle.com/help/start/account-verification/what-is-domain-verification)
+
+#### Default payment link
+
+Second, set up your [default payment link](https://developer.paddle.com/build/transactions/default-payment-link) on Paddle to:
+
+`https://myfirstapi.example/paddle-checkout`
+
+Nadles will redirect your customers to this page to make a payment.
+
+Two query string parameters will be added to the URL:
+
+1. `_ptxn` — a checkout transaction ID, added by Paddle. [Learn more.](https://developer.paddle.com/build/transactions/create-transaction)
+2. `_px_success_url` — success URL, added by Nadles. Paddle will redirect the customer to this URL after the payment succeeds.
+
+
+#### Paddle checkout page
+
+Third, build the checkout page and host it on your website.
+
+Feel free to use the following template and customize as needed:
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+
+<script type="text/javascript">
+  Paddle.Environment.set("sandbox"); // replace with "production" before going live
+  Paddle.Setup({ 
+    token: '7d279f61a3499fed520f7cd8c08' // replace with your client-side token
+  });
+
+  $(function() {
+    var urlParams = new URLSearchParams(window.location.search);
+
+    Paddle.Checkout.open({
+          transactionId: urlParams.get('_ptxn'),
+          settings: {
+            theme: "light",
+            locale: "en",
+            successUrl: urlParams.get('_px_success_url')
+        }
+    });
+  });
+</script>
+
+</body>
+</html>
+```
+
+Now deploy the page on `https://myfirstapi.example/paddle-checkout` and you're good to go.
+
+That's it. Paddle integration is set up and ready.

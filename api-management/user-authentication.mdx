@@ -4,11 +4,11 @@ description: "Configure how Nadles authenticates your API consumers."
 icon: 'road-barrier'
 ---
 
-Nadles API Gateway authenticates users by API keys/tokens sent along with each request. When a user activates a new subscription by paying the first invoice, Nadles issues a unique API key and the customer can get it from the subscription page in the self-service portal.
+Nadles API Gateway authenticates users by API keys/tokens sent along with each request. When the user activates a new subscription, Nadles issues a unique API key and the user can obtain it on the subscription page in the self-service portal.
 
 For the gateway to know where to find the API key in the HTTP request, a token extraction strategy needs to be configured. The strategy consists of one or more steps.
 
-In order to configure token extraction strategy, navigate to **APIs → choose an API → API Settings → Authentication tab**.
+In order to configure token extraction strategy, navigate to **APIs → choose an API → API Settings → User authentication tab**.
 
 <Warning>
   If you make changes to the user authentication settings, make sure to update the authentication instructions displayed to your customers in the self-service portal and on the checkout page.

@@ -53,6 +53,7 @@
       "group": "Overview",
       "pages": [
         "introduction",
+        "components",
         "quickstart"
       ]
     },
@@ -65,29 +66,42 @@
         "api-management/user-authentication",
         "api-management/securing-your-backend",
         "api-management/transformations",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "api-management/api-key-management",
+        "api-management/nadles-api-gateway"
       ]
     },
     {
       "group": "Products",
       "pages": [
-        "essentials/code"
+        "products/overview",
+        "products/create",
+        "products/billable-metrics",
+        "products/rate-limits",
+        "products/rejection-rules",
+        "products/transformations",
+        "products/modifying-products"
+      ]
+    },
+    {
+      "group": "Prices",
+      "pages": [
+        "pricing/overview",
+        "pricing/create-price"
       ]
     },
     {
       "group": "Payment integration",
       "pages": [
-        "essentials/code"
+        "payment-integration/stripe",
+        "payment-integration/paddle"
       ]
     },
     {
       "group": "User portal",
       "pages": [
-        "essentials/code"
+        "user-portal/activate-user-portal",
+        "user-portal/style-user-portal",
+        "user-portal/custom-domain"
       ]
     },
     {

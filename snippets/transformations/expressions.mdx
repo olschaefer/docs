@@ -1,4 +1,5 @@
-import ExpressionVariablesRequest from '../expression-variables-request.mdx';
+import ExpressionVariablesRequest from '/snippets/expression-variables-request.mdx';
+import ExpressionVariablesResponse from '/snippets/expression-variables-response.mdx';
 
 ### JavaScript
 
@@ -10,6 +11,7 @@ Expressions must evaluate to a new string value for the header/query string para
 
 <Info>
     **Example — News API**
+
     Say, you provide an API endpoint that returns contents of a news article. E.g.,
 
     ```json
@@ -27,12 +29,7 @@ Expressions must evaluate to a new string value for the header/query string para
     ![](/img/product-modeling/transformations/transformations-js-expression-example.png)
 
     Note that the expression evaluation result is used as the **new value** for the response body.
-</Info
-
-
-<Note>
-    If the original request or response body was compressed using GZip, Deflate or Brotli encoding, Nadles will compress the replaced body as well.
-</Note>
+</Info>
 
 
 #### Expression variables
@@ -40,3 +37,115 @@ Expressions must evaluate to a new string value for the header/query string para
 There are several variables you can use in your expressions.
 
 <ExpressionVariablesRequest />
+
+---
+
+<Warning>
+    Response variables are only available in **response** transformations.
+</Warning>
+
+<ExpressionVariablesResponse />
+
+
+
+
+### jq
+
+You can also use [jq](https://jqlang.github.io/jq/manual/) expressions for transformations.
+
+> jq is like sed for JSON data - you can use it to slice and filter and map and transform JSON with the same ease that sed, awk, grep and friends let you play with text.
+
+Unlike JavaScript expressions, the result of jq transformation does not necessarily have to be a string.
+If the expression result is not a string, it's encoded as JSON.
+
+#### Examples
+
+<Info>
+    **Example — News API**
+
+    Say, you provide an API endpoint that returns contents of a news article. E.g.,
+
+    ```json
+    {
+        "id": "b6355c53-44a3-464b-bc9e-759749cdb3ec",
+        "title": "The title",
+        "content": "Some long article body"
+    }
+    ```
+
+    For your "Free" product, you'd like to return only the first 120 characters of article body.
+
+    The following jq expression will do the job:
+
+    ![](/img/product-modeling/transformations/transformations-jq-expression-example.png)
+
+    Note that the expression evaluation result is used as the **new value** for the response body.
+</Info>
+
+
+#### Expression input
+
+The followind is passed as input (`.`) to your jq expressions:
+
+<Accordion title="Input for request transformation expressions">
+    ```json
+    {
+        "path": {
+            "params": { // path parameters, e.g. /endpoint/{path_param_1}
+                "path_param_1": "path_param_value_1",
+                "path_param_2": "path_param_value_2"
+            }
+        },
+        "request": {
+            "remote_addr": "127.0.0.1", // client IP address
+            "headers": { // request headers
+                "request_header_name_1": "header_value_1",
+                "request_header_name_2": ["header_values_2", "header_values_2"]
+            },
+
+            "query": { // query string parameters
+                "query_string_param_1": "query_string_param_value_1"
+            },
+
+            "body": "request body content"
+        },
+    }
+    ```
+</Accordion>
+
+<Accordion title="Input for response transformation expressions">
+    ```json
+    {
+        "path": {
+            "params": { // path parameters, e.g. /endpoint/{path_param_1}
+                "path_param_1": "path_param_value_1",
+                "path_param_2": "path_param_value_2"
+            }
+        },
+        "request": {
+            "remote_addr": "127.0.0.1", // client IP address
+            "headers": { // request headers
+                "request_header_name_1": "header_value_1",
+                "request_header_name_2": ["header_values_2", "header_values_2"]
+            },
+
+            "query": { // query string parameters
+                "query_string_param_1": "query_string_param_value_1"
+            },
+
+            "body": "request body content"
+        },
+        "request_transformed": { // request object, after request transformations are applied
+            // ...
+        },
+        "response": {
+            "statusCode": 200,
+            "headers": {
+                "response_header_name_1": "header_value_1",
+                "response_header_name_2": ["header_values_2", "header_values_2"]
+            },
+            "body": "response body content"
+        }
+    }
+    ```
+</Accordion>
