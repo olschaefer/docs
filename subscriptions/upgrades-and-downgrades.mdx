@@ -1,0 +1,91 @@
+---
+title: "Upgrades and downgrades"
+icon: "arrow-up-big-small"
+iconType: "solid"
+---
+
+When you're configuring a product, you can specify, to [which products](/products/create#allow-switching-to-following-products) customers can upgrade and downgrade subscriptions.
+
+Upgrades and downgrades are a complex topic. Read below about different aspects of switching subscriptions to another product.
+
+## Pay per use
+
+When a subscription upgrade or downgrade occurs, usage for the current billing period is aggregated and billed immediately.
+If the target product also contains pay-per-use items, the usage tracking starts from the moment of product switch.
+
+## One-off items
+
+One-off items remain in the subscription during during upgrades and downgrades, and their usage data is also retained.
+
+## Anchors
+
+Billing cycle anchor is the starting date for the calculation of all recurring periods.
+Nadles sets the anchors to the date and time of subscription creation.
+
+Upgrades and downgrades do not affect the anchor date and the new prices' billing periods are also calculated starting from that date.
+
+In order to ensure precise and fair billing for your customers, Nadles applies [prorations](#prorations).
+
+When a subscription is switched to a product that contains the same [billable metric](/products/billable-metrics)
+and an unmetered price with the same billing period, the billable metric's usage counter is not reset.
+
+If the new price for the billable metric has a different billing period, the usage counter is reset to zero.
+
+## Prorations
+
+When customers upgrade subscriptions, the unused amount from recurring unmetered prices is prorated and credited to the subscription balance.
+This amount is then deducted from upcoming payments until the credit balance is zero.
+
+The new prices are also prorated and the amount due at the moment of the subscription upgrade or downgrade is calculated for the time until the end of the price's billing period.
+
+If that sounds too complex, see the example below.
+
+<Info>
+**Upgrade example**:
+
+Subscription started on Jan 1, 2024.
+
+Product: "Basic", $100 per month.
+
+On Jan 26, the subscription is upgraded to the "Advanced" product: $300 per month.
+
+The subscription has 5 unused days for the price from "Basic" product.
+
+Nadles calculates the unused amount as follows: `$100 * (5 / 31) = $16.13` and credits \$16.13 to the subscription balance.
+
+For the new price, the remaining time until the next billing period is also 5 days.
+
+Nadles calculates the amount due for the remaining time as follows: `$300 * (5 / 31) = 48.39`.
+
+The final payment amount due at the moment of upgrade is: `$48.39 — $16.13 = $32.26`
+— this is the actual amount the customer will pay for the upgrade.
+
+On Feb 1, the customer will be charged the full amount of \$300 for the next billing period.
+
+</Info>
+
+<Info>
+**Downgrade example**:
+
+Subscription started on Jan 1, 2024.
+
+Product: "Advanced", $300 per month.
+
+On Jan 26, the subscription is downgraded to the "Basic" product: $100 per month.
+
+The subscription has 5 unused days for the price from "Advanced" product.
+
+Nadles calculates the unused amount as follows: `$300 * (5 / 31) = $48.39` and credits \$48.39 to the subscription balance.
+
+For the new price, the remaining time until the next billing period is also 5 days.
+
+Nadles calculates the amount due for the remaining time as follows: `$100 * (5 / 31) = 16.13`.
+
+The final payment amount due at the moment of upgrade is: `$16.13 - $48.39 = -$32.26`.
+
+Since the credit balance is greater than the amount due, the amount due is simply deducted from the credit balance which now becomes \$32.36.
+
+On Feb 1, the customer should be charged \$100 for the next billing period of the new price.
+
+But since there is a remaining credit balance, it is applied to the payment and the actual charge will be `$100 - $32.36 = $67.64`.
+</Info>

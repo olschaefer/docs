@@ -1,0 +1,26 @@
+---
+title: "Overview"
+icon: "repeat"
+iconType: "sharp-solid"
+mode: 'wide'
+---
+
+Subscription lifecycle on Nadles begins with creating an order.
+
+When a customer clicks **Subscribe** on the checkout page, Nadles creates an order which expires in 24 hours if not paid.
+
+Before taking the customer to the payment page, Nadles collects billing address to make sure invoices are issued correctly.
+
+After a successful payment, the customer is returned to the subscription dashboard where all details about pricing, current usage and included API endpoints are displayed.
+
+On the subscription page, the customer can
+
+* Update payment method.
+* Switch the subscription to a different product, if that is allowed by the configuration.
+* Top up prepaid items, if allowed.
+* Cancel subscription.
+
+## Cancellation
+
+Subscriptions are not canceled immediately. When the user clicks **Cancel subscription**, the cancellation is scheduled for the nearest billing date.
+This helps avoid unnecessary refunds.

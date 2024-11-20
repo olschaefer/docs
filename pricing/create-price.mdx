@@ -11,12 +11,16 @@ To configure product pricing, you need to create one or more prices.
 During the subscription life cycle, each price is billed independently, allowing you to configure complex pricing models.
 However, if several prices have the same billing period, they all are charged in one single payment.
 
-If you, for example, create one price billed monthly and another one billed annually, Nadles will do exactly that: the customer will be charged for both prices according to their billing periods.
+If you, for example, create one price billed monthly and another billed annually, Nadles will do exactly that: the customer will be charged for both prices according to their billing periods.
 
+
+<Tip>
+Try creating products from [templates](/products/create#product-templates) to see different pricing configurations in action.
+</Tip>
 
 ## Pricing models
 
-Pricing model defines, how Nadles calculates the payment amount based on the number of purchased or consumed billable metrics units.
+Pricing model defines how Nadles calculates the payment amount based on the number of purchased or consumed billable metrics units.
 
 The following models are supported: flat/setup fee, standard, package, graduated and volume. Below you can find a detailed description for each model.
 
@@ -25,7 +29,7 @@ The following models are supported: flat/setup fee, standard, package, graduated
 Recurring prices are billed every X days, weeks, months or years.
 They can be used to charge fees for your services periodically.
 
-Recurring prices can be either metered or unmetered.
+Recurring prices can be either unmetered or metered.
 
 * **Unmetered** prices charge the full amount for the purchased quantity of billable metrics units.
   You can configure the default purchase quantity in the price settings and allow customers to adjust it at checkout if needed.
@@ -284,6 +288,19 @@ One-off prices support the same pricing models as recurring prices (setup fee, s
 
 It means, that they represent a hard limit on consumption and customers always pay for the full purchased quantity.
 
+### Top ups
+
+You can allow your customers to top up one-off items in a subscription if the price is configured with the standard, package, graduated or volume model.
+
+If you enable top ups, the customer can buy more items right from the subscription dashboard in the user portal.
+
+
+## Adjustable quantity
+
+For recurring unmetered and one-off prices using standard, package, graduated or volume model, you can enable quantity adjustment at checkout.
+
+If this config option is enabled, customers can adjust the purchased quantity right on the checkout page.
+This is especially useful if you offer tiered pricing or would like to allow customers decide how many units to buy.
 
 ## Combining prices
 

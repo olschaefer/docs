@@ -2,14 +2,14 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Nadles Documentation",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/logo_noemboss.svg",
+    "light": "/logo/logo_noemboss.svg"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "",
   "colors": {
     "primary": "#644376",
     "light": "#07C983",
-    "dark": "#0D9373",
+    "dark": "#644376",
     "anchors": {
       "from": "#0D9373",
       "to": "#07C983"
@@ -26,26 +26,13 @@
     "url": "https://app.nadles.com"
   },
   "tabs": [
-    {
-      "name": "API Reference",
-      "url": "api-reference"
-    }
   ],
   "anchors": [
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "discord",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "name": "Go to website",
+      "icon": "browsers",
+      "url": "https://www.nadles.com/",
+      "color": "#644376"
     }
   ],
   "navigation": [
@@ -101,27 +88,27 @@
       "pages": [
         "user-portal/activate-user-portal",
         "user-portal/style-user-portal",
-        "user-portal/custom-domain"
+        "user-portal/custom-domain",
+        "user-portal/checkout-links"
       ]
     },
     {
       "group": "Subscriptions",
       "pages": [
-        "essentials/code"
+        "subscriptions/overview",
+        "subscriptions/upgrades-and-downgrades"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Analytics",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "analytics/query-syntax"
       ]
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "x": "https://x.com/nadlescom",
+    "linkedin": "https://linkedin.com/company/nadles",
+    "medium": "https://nadles.medium.com/"
   }
 }
