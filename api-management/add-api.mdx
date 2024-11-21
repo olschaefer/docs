@@ -8,9 +8,16 @@ icon: "circle-plus"
 
 Nadles supports importing OpenAPI **v3.0** specifications. It is the easiest way to get your API up and running.
 
-* Click **"Import OpenAPI file"**.
+* Navigate to **My APIs**.
 
-* Choose the subdomain for your API, select the OpenAPI file and click **"Submit"**.
+* Click **Import OpenAPI file**.
+
+<Frame>
+![](/images/api-management/import-openapi.png)
+</Frame>
+
+
+* Choose the subdomain for your API, select the OpenAPI file and click **Submit**.
 
 <Info>
   By default, Nadles let's you choose a subdomain for your API, so the URL to access your API looks like `https://<subdomain>.p.nadles.com/`
@@ -29,9 +36,16 @@ After importing the file, please check the correctness of the configuration on t
 
 ### Adding a new API
 
-* On the API list page click **"Add new API"**.
+* Navigate to **My APIs**.
 
-* Fill in the details of the API.
+* Click **"Add new API"**.
+
+* Fill in the details of your API.
+
+
+<Frame>
+![](/images/api-management/add-api.png)
+</Frame>
 
 **Name**
 
@@ -78,7 +92,7 @@ By default, your API is accessible on Nadles domain and the access URL looks lik
 
 Later, you can configure Nadles API Gateway to use a custom domain for your API, e.g. [`https://api.mydomain.com`.](https://api.mydomain.com.) [Learn more](api-management/custom-domains).
 
-* Click "Submit".
+* Click **Submit**.
 
 * After the API is added, you are redirected to the dashboard.
 
@@ -88,9 +102,14 @@ To attach a custom domain to your API, check out [this page](api-management/cus
 
 ### Adding endpoints
 
-* Go to **"Endpoints"** section and click **"Add new endpoint"**.
+* Go to **Endpoints** section in the menu and click **Add new endpoint**.
 
 * Choose a HTTP method and enter the endpoint URL relative to the base URL.
+
+
+<Frame>
+![](/images/api-management/add-endpoint.png)
+</Frame>
 
 <Info>
   If your API has the following endpoints:
@@ -108,9 +127,9 @@ To attach a custom domain to your API, check out [this page](api-management/cus
 
   `GET /weather-forecast/{city}`
 
-  In this case, you will be able to configure Nadles API Gateway to limit access to weather forecast for certain cities or charge different amounts for different cities.
+  In this case, you will be able to later configure Nadles API Gateway to limit access to weather forecast for certain cities or charge different price for different cities.
 </Info>
 
-* Click **"Submit"**.
+* Click **Submit**.
 
 Once all endpoints are added, it's time to [set up user authentication](https://docs.nadles.com/api-management/authentication/).

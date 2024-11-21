@@ -18,9 +18,28 @@ In order to configure token extraction strategy, navigate to **My APIs → choo
 
 By default, the gateway looks for the API key in the `X-Billing-Token` request header.
 
+<Frame>
+![](/images/api-management/auth-default.png)
+</Frame>
+
 The header name is chosen to avoid interference with "Authorization" header in cases when the API uses it for internal authentication.
 
-## API key in "Authorization" header
+## API key in an arbitrary header
+
+If you'd like to use a custom header for the access token (e.g. `X-My-Api-Token: <token>`), configure the token extraction strategy as follows:
+
+* Click **Delete step** in order to clear the step list.
+
+Click **Get request header value**.
+
+* Enter `X-My-Api-Token` as header name.
+
+* Click **Save**.
+
+Now API users can send the token in `X-My-Api-Token: <token>` header.
+
+
+## API key in "Authorization: Bearer" header
 
 If you'd like to use `Authorization: Bearer <token>` scheme, configure the token extraction strategy as follows:
 
@@ -44,21 +63,13 @@ If you'd like to use `Authorization: Bearer <token>` scheme, configure the tok
 
 * Click **Save**.
 
+
+<Frame>
+![](/images/api-management/auth-bearer.png)
+</Frame>
+
+
 Now the gateway will look for the token in `Authorization: Bearer <token>` header.
-
-## API key in an arbitrary header
-
-If you'd like to use a custom header for the access token (e.g. `X-My-Api-Token: <token>`), configure the token extraction strategy as follows:
-
-* Click **Delete step** in order to clear the step list.
-
-Click **Get request header value**.
-
-Enter `X-My-Api-Token` as header name.
-
-* Click **Save**.
-
-Now API users can send the token in `X-My-Api-Token: <token>` header.
 
 ## API key in JSON body
 
@@ -83,7 +94,7 @@ In order to implement that, configure the token extraction strategy as follows:
 
 * Click **Get request body**.
 
-Click **Decode it as...**.
+* Click **Decode it as...**.
 
 * Choose `JSON` from the dropdown list.
 
@@ -92,6 +103,10 @@ Click **Decode it as...**.
 * Enter `input.auth.token` as expression.
 
 * Click **Save**.
+
+<Frame>
+![](/images/api-management/auth-json-body.png)
+</Frame>
 
 The gateway will decode the request body as JSON and extract the token value by the specified path.
 
@@ -110,6 +125,10 @@ For example, you would like to pass API keys in `apiKey` query string paramete
 * Click **Take value by path or apply expression**.
 
 * Enter `input.apiKey` as expression.
+
+<Frame>
+![](/images/api-management/auth-query-string.png)
+</Frame>
 
 <Note>
   In the expression you can use the result of the previous step, it's stored in a variable named `input`.

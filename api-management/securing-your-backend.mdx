@@ -18,27 +18,32 @@ If you're already using another API gateway, please refer to its documentation o
 
 ### Configuring Nadles API Gateway
 
-To make Nadles send the API key to your API in a header, you can use the request/response [transformation](https://docs.nadles.com/api-management/transformations/) feature.
+To make Nadles send the API key to your API in a header, you can use the request/response [transformation](/api-management/transformations/) feature.
 
 It allows you to add/replace/delete HTTP headers for each proxied request.
 
 To make Nadles send the API key with each request:
 
-1. Navigate to **APIs → choose an API → Transformations**.
+* Navigate to **APIs → choose an API → Transformations**.
 
-2. Click **Add new request transformation**.
+* Click **Add new request transformation**.
 
-3. Choose **Target:** `Header`, **Action:** `Replace`.
+* Choose **Target:** `Header`, **Action:** `Replace`.
    This will add a header with the given name and value, or replace it with the specified value, if the request already has a header with this name.
 
-4. Enter the name of the header in which Nadles API Gateway should send the API key. In the Nginx example above it's `X-Api-Key`.
+* Enter the name of the header in which Nadles API Gateway should send the API key. In the Nginx example above it's `X-Api-Key`.
 
-5. Enter the API key in the `Value` field.
+* Enter the API key in the `Value` field.
    Please check the screenshot below for an example.
 
-6. Click **Submit**.
+* Click **Submit**.
+
+<Frame>
+![](/images/api-management/securing-backend-transformation.png)
+</Frame>
 
 That's it: Nadles will now add header `X-Api-Key: <value>` to each request.
+
 
 ### Nginx
 

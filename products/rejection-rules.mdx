@@ -17,11 +17,11 @@ Reject request if:
 
 * The customer tries to request more than 100 elements:
 
-  `request.query['num'] > 100`
+  `request.query.num > 100`
   
 * The customer tries to request more than 10 pages of results:
   
-  `request.query['page'] > 10`
+  `request.query.page > 10`
 
 * Number of elements in the input JSON array is bigger than 50:
   
@@ -32,7 +32,13 @@ One rejection rule can be applied to several endpoints. The expression will be e
 
 ## Add rejection rule
 
+* Navigate to **Products → choose a product → Limits**.
+
 * Click **Add rejection rule**.
+
+  <Frame>
+  ![](/images/products/product-rejection-rule-add.png)
+  </Frame>
 
 * Enter the expression, select the endpoints this rule applies to, and click **Save**.
 

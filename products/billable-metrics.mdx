@@ -6,7 +6,6 @@ icon: 'gauge'
 import ExpressionVariablesRequest from '/snippets/expression-variables-request.mdx';
 import ExpressionVariablesResponse from '/snippets/expression-variables-response.mdx';
 
-
 Billable metrics are what you charge your customers for.
 
 Common examples of billable metrics are:
@@ -15,6 +14,11 @@ Common examples of billable metrics are:
 * Uploaded/downloaded bytes
 * Characters in a text for a Text-to-Speech API
 * Internal currency like "coins", "tokens" or "credits"
+
+
+<Frame>
+![](/images/products/product-metric-list.png)
+</Frame>
 
 
 <Tip>
@@ -92,6 +96,11 @@ graph TD
 
 * Fill out the form.
 
+
+<Frame>
+![](/images/products/product-metric-create.png)
+</Frame>
+
 ### Metric name
 
 Human-readable name of your billable metric. It will be displayed to your customers on the checkout page and in the user portal.
@@ -117,6 +126,10 @@ This is mostly useful in two cases:
 
   The maximum usage limit setting provides a safeguard against excessive API usage that could lead to cost overruns for your customers. Once the limit is exceeded, the API gateway will automatically stop processing requests until the limit resets.
   
+<Frame>
+![](/images/products/product-metric-create-limit.png)
+</Frame>
+
   Nadles recognizes that usage needs vary. It allows you to grant customers the ability to adjust [their own API usage limits](#let-customers-adjust-limit).
 
 
@@ -136,6 +149,11 @@ By default, each request to one of these endpoints will consume 1 unit. Per-endp
 Once the billable metric is added, it's time to configure, how many units each request will consume.
 
 * Navigate to the **Usage configuration** tab.
+
+<Frame>
+![](/images/products/product-metric-usage-config.png)
+</Frame>
+
 
 Here, for each endpoint you can configure two things:
 
@@ -184,7 +202,9 @@ See the examples below.
 
     How it looks in the **Quantity used by a single call** field:
 
-    ![](/img/product-modeling/configuring-limits/limits-quota-usage-response-header.png)
+    <Frame>
+    ![](/images/products/product-metric-usage-config-e1.png)
+    </Frame>
 
     And that's it. Nadles will wait for the response and record the value from the `X-Consumed-Cpu-Seconds` header as usage for the current request.
 </Info>
@@ -206,7 +226,9 @@ See the examples below.
 
     How it looks in the **Quantity used by a single call** field:
 
-    ![](/img/product-modeling/configuring-limits/limits-quota-usage-expression-llm.png)
+    <Frame>
+    ![](/images/products/product-metric-usage-config-e2.png)
+    </Frame>
 
     Nadles API Gateway will check the value of the path parameter and record the usage of 2 units if `LLM_MODEL` equals `gpt4`, and 1 unit otherwise.
 </Info>
@@ -237,7 +259,9 @@ JSON.parse(request.body).length
 
 In the **Quantity used by a single call** field:
 
-![](/img/product-modeling/configuring-limits/limits-quota-usage-expression-request-body-length.png)
+<Frame>
+![](/images/products/product-metric-usage-config-e3.png)
+</Frame>
 </Info>
 
 
