@@ -5,7 +5,7 @@
     "dark": "/logo/logo_noemboss.svg",
     "light": "/logo/logo_noemboss.svg"
   },
-  "favicon": "",
+  "favicon": "/favicon.svg",
   "colors": {
     "primary": "#644376",
     "light": "#07C983",

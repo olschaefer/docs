@@ -6,16 +6,89 @@ icon: 'paintbrush'
 ## General
 
 You can use free-form CSS to completely change the look of your user portal.
+Navigate to the [Settings page](/user-portal/activate-user-portal#settings) of your user portal
 
-See the full [list of supported CSS variables](#variables) below.
-
-To override variables, use `:root` pseudo-element.
+To override CSS variables, use `:root` pseudo-element.
 
 ``` css
 :root {
     --body-background-color: #999999;
 }
 ```
+
+See the full [list of supported CSS variables](#variables) below.
+
+<Warning>
+Be aware that the user portal CSS overrides checkout page themes.
+</Warning>
+
+
+
+## «Subscribe» card
+
+This is the subscription card on the checkout page. Read below about customizing its text.
+
+<Frame>
+![](/images/user-portal/checkout-page-subscription-card.png)
+</Frame>
+
+### Change button text for all checkout pages
+
+In order to change the text on the «Subscribe» button, add the following CSS snippet to your [custom CSS](/user-portal/activate-user-portal#settings).
+
+``` css
+.checkout-public .subscribe-button span {
+    display: none;
+}
+
+.checkout-public .subscribe-button::after {
+    content: 'Purchase';
+}
+```
+
+Replace the `content` property with your custom text.
+
+### Change button text for certain pages
+
+Each checkout link has a hash, you can find it in the URL:
+
+<Frame>
+![](/images/user-portal/checkout-link-hash.png)
+</Frame>
+
+Nadles adds a CSS class `checkout-link-<hash>` to each checkout page.
+
+In order to change the button text for a certain checkout page, use the following CSS:
+
+``` css
+.checkout-public.checkout-link-<hash> .subscribe-button span {
+    display: none;
+}
+
+.checkout-public.checkout-link-<hash> .subscribe-button::after {
+    content: 'Buy credits';
+}
+```
+
+Replace `<hash>` with the hash of the checkout page.
+
+
+### Change card title
+
+In order to change the card title ("Subscribe" by default), add the following CSS snippet to your [custom CSS](/user-portal/activate-user-portal#settings).
+
+``` css
+.checkout-public .subscribe-card .card-title span {
+    display: none;
+}
+
+.checkout-public .subscribe-card .card-title::after {
+    content: 'Purchase';
+}
+```
+
+Replace the `content` property with your custom text.
+
 
 ## Example CSS
 
