@@ -89,7 +89,8 @@
         "user-portal/activate-user-portal",
         "user-portal/style-user-portal",
         "user-portal/custom-domain",
-        "user-portal/checkout-links"
+        "user-portal/checkout-links",
+        "user-portal/pricing-page"
       ]
     },
     {
