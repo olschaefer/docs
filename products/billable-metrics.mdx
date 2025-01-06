@@ -192,7 +192,7 @@ See the examples below.
 
     For instance, if you bill for CPU seconds used to process the request and Nadles is unable to infer that value from the request/response on its own, you can calculate it in your API backend for each request and then tell Nadles the actual value it should record by adding a custom header to the response.
 
-    The header name doesn't matter, you can use any valid header name, e.g. `X-Consumed-Cpu-Seconds`.
+    The header name doesn't matter, you can use any valid header name, e.g. `x-consumed-cpu-seconds`.
     
     The expression in this case can be:
 
@@ -206,8 +206,12 @@ See the examples below.
     ![](/images/products/product-metric-usage-config-e1.png)
     </Frame>
 
-    And that's it. Nadles will wait for the response and record the value from the `X-Consumed-Cpu-Seconds` header as usage for the current request.
+    And that's it. Nadles will wait for the response and record the value from the `x-consumed-cpu-seconds` header as usage for the current request.
 </Info>
+
+<Warning>
+  Header names must be in lower case.
+</Warning>
 
 #### Example: variable usage depending on input parameter
 
@@ -232,6 +236,10 @@ See the examples below.
 
     Nadles API Gateway will check the value of the path parameter and record the usage of 2 units if `LLM_MODEL` equals `gpt4`, and 1 unit otherwise.
 </Info>
+
+<Warning>
+  Path parameter names are **case-sensitive**.
+</Warning>
 
 #### Example: batch endpoints
 
