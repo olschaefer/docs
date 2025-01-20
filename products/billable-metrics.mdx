@@ -117,15 +117,15 @@ This is mostly useful in two cases:
 
 1. To limit usage in free products.
 
-  When you [add an unmetered price](/pricing/create-price#recurring-prices) to the product, you, at the same time, define a usage limit.
-  Free products usually have no prices and this setting comes in handy to limit the usage.
+    When you [add an unmetered price](/pricing/create-price#recurring-prices) to the product, you at the same time implicitly define a usage limit.
+    Free products usually have no prices and this setting comes in handy to limit the usage.
 
-2. To cap usage in pay-per-use products.
+1. To cap usage in pay-per-use products.
 
-  Uncapped pay-per-use pricing poses a significant risk to customers: a mistake in application code or malicious activity can lead to unexpected, and potentially enormous, API usage charges.
+    Uncapped pay-per-use pricing poses a significant risk to customers: a mistake in application code or malicious activity can lead to unexpected and, potentially, enormous API usage charges.
 
-  The maximum usage limit setting provides a safeguard against excessive API usage that could lead to cost overruns for your customers. Once the limit is exceeded, the API gateway will automatically stop processing requests until the limit resets.
-  
+    The maximum usage limit setting provides a safeguard against excessive API usage that could lead to cost overruns for your customers. Once the limit is exceeded, the API gateway will automatically stop processing requests until the limit resets.
+    
 <Frame>
 ![](/images/products/product-metric-create-limit.png)
 </Frame>
@@ -135,9 +135,7 @@ This is mostly useful in two cases:
 
 #### Let customers adjust limit
 
-This field is visible only if **Set hard limit** is enabled.
-
-If enabled, at checkout, customers have the option to adjust their API usage limit before completing their purchase.
+If enabled, customers have the option to adjust the limit for their subscription at checkout or later, when the subscription is active.
 
 ### Associated endpoints
 
