@@ -147,128 +147,128 @@ Try applying it to your user portal to see how it works.
 
 The simplest way to change the look of your user portal is to change values of these variables.
 
-| Name                                              | Description                                                                           | Default value                                |
-|---------------------------------------------------|---------------------------------------------------------------------------------------|----------------------------------------------|
-| --primary-color-rgb                               | RGB code for primary color.                                                           | 100 67 118                                   |
-| --primary-color                                   |                                                                                       | rgb(var(--primary-color-rgb) / 1)            |
-| --primary-color-hover-rgb                         | RGB code for primary color, hover.                                                    | 176 120 206                                  |
-| --primary-color-hover                             |                                                                                       | rgba(var(--primary-color-hover-rgb))         |
-| --secondary-color-rgb                             | RGB code for secondary color.                                                         | 120 131 147                                  |
-| --secondary-color                                 |                                                                                       | rgb(var(--secondary-color-rgb) / 1)          |
-| --dark-color-rgb                                  | RGB code for dark color.                                                              | 32 47 63                                     |
-| --dark-color                                      |                                                                                       | rgb(var(--dark-color-rgb) / 1)               |
-| --danger-color-rgb                                | RGB code for danger color.                                                            | 255 62 29                                    |
-| --danger-color                                    |                                                                                       | rgb(var(--danger-color-rgb) / 1)             |
-| --danger-color-hover                              | RGB code for danger color, hover.                                                     | #e6381a                                      |
-| --body-background-color                           | Body background color, see also: --card-background-color.                             | var(--bs-body-bg)                            |
-| --body-color                                      | Body text color, see also: --card-color.                                              | var(--bs-body-color)                         |
-| --body-font-family                                |                                                                                       | var(--bs-body-font-family)                   |
-| --body-font-size                                  |                                                                                       | var(--bs-body-font-size)                     |
-| --body-font-weight                                |                                                                                       | var(--bs-body-font-weight)                   |
-| --link-color                                      | Default link color.                                                                   | var(--primary-color)                         |
-| --link-color-hover                                | Default link color, hover.                                                            | var(--primary-color-hover)                   |
-| --heading-color                                   | Default color for headers (h1, h2, ...).                                              | var(--body-color)                            |
-| --card-background-color                           | Background color for cards.                                                           | #ffffff                                      |
-| --card-color                                      | Text color for cards.                                                                 | var(--body-color)                            |
-| --card-emphasis-color                             | Pricing summary on the pricing card on subscription page.                             | #000000                                      |
-| --card-margin                                     |                                                                                       | 0 0 1rem 0                                   |
-| --card-box-shadow                                 | Box shadow parameter for cards.                                                       | 0 2px 6px 0 rgba(67, 89, 113, 0.12)          |
-| --card-border-radius                              | Border radius for cards.                                                              | 0.5rem                                       |
-| --card-header-border-bottom                       | The border under card headers.                                                        | 1px solid #f1f1f1                            |
-| --card-header-margin                              |                                                                                       | 0 0 1.5rem 0                                 |
-| --card-title-color                                | Text color of card titles/headers.                                                    | #566a7f                                      |
-| --menu-background-color                           | Background color for the menu.                                                        | var(--card-background-color)                 |
-| --menu-color                                      | Menu text color.                                                                      | var(--card-color)                            |
-| --menu-app-brand-logo-url                         | URL for the brand logo. Nadles logo by default.                                       | url('/assets/images/logo_noemboss.svg')      |
-| --menu-app-brand-name-content                     | Text after the logo. API provider name by default.                                    | attr(data-provider-name)                     |
-| --menu-app-brand-link-color                       | Logo link text color, when the logo is clickable.                                     | rgb(63, 57, 90)                              |
-| --menu-app-brand-link-color-hover                 | Logo link text color, when the logo is clickable, hover.                              | var(--menu-app-brand-link-color)             |
-| --menu-header-color                               | Text color of menu header — customer name right under the logo in the menu.           | #a1acb8                                      |
-| --menu-item-color                                 | Text color of inactive non-link menu item.                                            | var(--card-color)                            |
-| --menu-item-color-hover                           | Text color of inactive non-link menu item, hover.                                     | var(--card-color)                            |
-| --menu-item-background-color                      | Background color of `<li>` element in the menu.                                         | var(--card-background-color)                 |
-| --menu-item-background-color-hover                | Background color of `<li>` element in the menu, hover.                                  | var(--card-background-color)                 |
-| --menu-item-link-color                            | Text color of links in menu items.                                                    | var(--menu-item-color)                       |
-| --menu-item-link-color-hover                      | Text color of links in menu items, hover.                                             | var(--menu-item-color-hover)                 |
-| --menu-item-link-background-color                 | Background color of links in menu items.                                              | var(--menu-item-background-color)            |
-| --menu-item-link-background-color-hover           | Background color of links in menu items, hover.                                       | rgba(67, 89, 113, 0.04)                      |
-| --menu-item-active-color                          | Text color in active menu items, non-link.                                            | var(--link-color)                            |
-| --menu-item-active-color-hover                    | Text color in active menu items, non-link, hover.                                     | var(--link-color-hover)                      |
-| --menu-item-active-background-color               | Background color of active `<li>` element in the menu.                                  | var(--card-background-color)                 |
-| --menu-item-active-background-color-hover         | Background color of active `<li>` element in the menu, hover.                           | var(--card-background-color)                 |
-| --menu-item-active-link-color                     | Text color of links in active menu items.                                             | var(--menu-item-active-color)                |
-| --menu-item-active-link-color-hover               | Text color of links in active menu items, hover.                                      | var(--menu-item-active-color-hover)          |
-| --menu-item-active-link-background-color          | Background color of links in active menu items.                                       | rgba(105, 108, 255, 0.16)                    |
-| --menu-item-active-link-background-color-hover    | Background color of links in active menu items, hover.                                | rgba(105, 108, 255, 0.16)                    |
-| --menu-item-icon-color                            | Menu icons text color.                                                                | var(--link-color)                            |
-| --menu-item-icon-color-hover                      | Menu icons text color, hover.                                                         | var(--link-color-hover)                      |
-| --menu-item-active-icon-color                     | Menu icons text color in active menu items.                                           | var(--link-color)                            |
-| --menu-item-active-icon-color-hover               | Menu icons text color in active menu items, hover.                                    | var(--link-color-hover)                      |
-| --menu-item-bullet-color                          | Menu bullet color in active menu items.                                               | var(--primary-color)                         |
-| --menu-item-bullet-color-hover                    | Menu bullet color in active menu items, hover.                                        | var(--primary-color)                         |
-| --navbar-background-color                         | Top navbar background color.                                                          | var(--card-background-color)                 |
-| --navbar-link-color                               | Top navbar link text color.                                                           | var(--card-color)                            |
-| --navbar-link-color-hover                         | Top navbar link text color, hover.                                                    | var(--card-color)                            |
-| --navbar-box-shadow                               | Top navbar box shadow.                                                                | var(--card-box-shadow)                       |
-| --navbar-dropdown-menu-box-shadow                 | Top navbar dropdown menu box shadow.                                                  | 0 0.25rem 1rem rgba(161, 172, 184, 0.45)     |
-| --navbar-border-radius                            | Top navbar border radius.                                                             | var(--card-border-radius)                    |
-| --table-header-color                              | Table headers text color.                                                             | var(--card-title-color)                      |
-| --table-header-border-bottom                      | Table headers bottom border.                                                          | 1px solid #d9dee3                            |
-| --table-row-border                                | Table row bottom border.                                                              | 1px solid #f1f1f166                          |
-| --row-background-color-hover                      | Table row background color, hover.                                                    | rgba(67, 89, 113, 0.06)                      |
-| --row-color-hover                                 | Table row text color, hover.                                                          | var(--body-color)                            |
-| --transaction-history-posting-positive            | Text color for transaction history positive items (e.g., + $100)                      | rgba(var(--bs-success-rgb), 1)               |
-| --transaction-history-posting-negative            | Text color for transaction history negative items (e.g., - $50)                       | rgba(var(--bs-warning-rgb), 1)               |
-| --button-color-default                            | Button text color default.                                                            | #ffffff                                      |
-| --button-primary-color                            |                                                                                       | var(--button-color-default)                  |
-| --button-primary-color-hover                      |                                                                                       | var(--button-color-default)                  |
-| --button-primary-background-color                 |                                                                                       | var(--primary-color)                         |
-| --button-primary-background-color-hover           |                                                                                       | var(--primary-color)                         |
-| --button-primary-border-color                     |                                                                                       | var(--button-primary-background-color)       |
-| --button-primary-outline-color                    |                                                                                       | var(--button-primary-background-color)       |
-| --button-primary-outline-color-hover              |                                                                                       | var(--button-primary-color-hover)            |
-| --button-primary-outline-background-color         |                                                                                       | var(--button-primary-color)                  |
-| --button-primary-outline-background-color-hover   |                                                                                       | var(--button-primary-background-color-hover) |
-| --button-primary-outline-border-color             |                                                                                       | var(--button-primary-background-color)       |
-| --button-secondary-color                          |                                                                                       | var(--button-color-default)                  |
-| --button-secondary-color-hover                    |                                                                                       | var(--button-color-default)                  |
-| --button-secondary-background-color               |                                                                                       | var(--secondary-color)                       |
-| --button-secondary-background-color-hover         |                                                                                       | var(--secondary-color)                       |
-| --button-secondary-border-color                   |                                                                                       | var(--button-secondary-background-color)     |
-| --button-secondary-outline-color                  |                                                                                       | var(--button-secondary-background-color)     |
-| --button-secondary-outline-color-hover            |                                                                                       | var(--button-secondary-color)                |
-| --button-secondary-outline-background-color       |                                                                                       | var(--button-secondary-color)                |
-| --button-secondary-outline-background-color-hover |                                                                                       | var(--button-secondary-background-color)     |
-| --button-secondary-outline-border-color           |                                                                                       | var(--button-secondary-background-color)     |
-| --button-dark-color                               |                                                                                       | var(--button-color-default)                  |
-| --button-dark-color-hover                         |                                                                                       | var(--button-color-default)                  |
-| --button-dark-background-color                    |                                                                                       | var(--dark-color)                            |
-| --button-dark-background-color-hover              |                                                                                       | var(--dark-color)                            |
-| --button-dark-border-color                        |                                                                                       | var(--button-dark-background-color)          |
-| --button-dark-outline-color                       |                                                                                       | var(--button-dark-background-color)          |
-| --button-dark-outline-color-hover                 |                                                                                       | var(--button-dark-color)                     |
-| --button-dark-outline-background-color            |                                                                                       | var(--transparent)                           |
-| --button-dark-outline-background-color-hover      |                                                                                       | var(--button-dark-background-color)          |
-| --button-dark-outline-border-color                |                                                                                       | var(--button-dark-background-color)          |
-| --button-danger-color                             |                                                                                       | var(--button-color-default)                  |
-| --button-danger-color-hover                       |                                                                                       | var(--button-color-default)                  |
-| --button-danger-background-color                  |                                                                                       | var(--danger-color)                          |
-| --button-danger-background-color-hover            |                                                                                       | var(--danger-color-hover)                    |
-| --button-danger-border-color                      |                                                                                       | var(--button-danger-background-color)        |
-| --button-danger-outline-color                     |                                                                                       | var(--button-danger-background-color)        |
-| --button-danger-outline-color-hover               |                                                                                       | var(--button-danger-color-hover)             |
-| --button-danger-outline-background-color          |                                                                                       | var(--button-danger-color)                   |
-| --button-danger-outline-background-color-hover    |                                                                                       | var(--button-danger-background-color-hover)  |
-| --button-danger-outline-border-color              |                                                                                       | var(--button-danger-background-color)        |
-| --input-color                                     | Input text color.                                                                     | var(--card-color)                            |
-| --input-background-color                          | Input background color.                                                               | var(--card-background-color)                 |
-| --input-border-color                              | Input border color.                                                                   | #d9dee3                                      |
-| --input-border-color-focus                        | Input border color when focused.                                                      | var(--primary-color)                         |
-| --input-group-button-color                        | Buttons in input groups text color, e.g., API access URL on checkout pages.           | var(--input-color)                           |
-| --input-group-button-background-color             | Buttons in input groups background color for, e.g., API access URL on checkout pages. | var(--input-background-color)                |
-| --product-name-color                              | Product name text color.                                                              | var(--card-title-color)                      |
-| --api-header-color                                | API header text color.                                                                | var(--card-title-color)                      |
-| --api-icon-color                                  | API header icon color.                                                                | var(--api-header-color)                      |
-| --modal-content-background-color                  | Modal windows background color.                                                       | var(--card-background-color)                 |
-| --login-form-bullets-background                   | Bullets behind the login/registration/password reset forms.                           |                                              |
-| --text-muted-color                                | Muted text color.                                                                     | #a1acb8;                                     |
+| Variable                                              | Description                                                                           |
+|---------------------------------------------------|---------------------------------------------------------------------------------------|
+| `--primary-color-rgb: 100 67 118`                                                                  | RGB code for primary color.                                                           |
+| `--primary-color: rgb(var(--primary-color-rgb) / 1)`                                               |                                                                                       |
+| `--primary-color-hover-rgb: 176 120 206`                                                           | RGB code for primary color, hover.                                                    |
+| `--primary-color-hover: rgba(var(--primary-color-hover-rgb))`                                      |                                                                                       |
+| `--secondary-color-rgb: 120 131 147`                                                               | RGB code for secondary color.                                                         |
+| `--secondary-color: rgb(var(--secondary-color-rgb) / 1)`                                           |                                                                                       |
+| `--dark-color-rgb: 32 47 63`                                                                       | RGB code for dark color.                                                              |
+| `--dark-color: rgb(var(--dark-color-rgb) / 1)`                                                     |                                                                                       |
+| `--danger-color-rgb: 255 62 29`                                                                    | RGB code for danger color.                                                            |
+| `--danger-color: rgb(var(--danger-color-rgb) / 1)`                                                 |                                                                                       |
+| `--danger-color-hover: #e6381a`                                                                    | RGB code for danger color, hover.                                                     |
+| `--body-background-color: var(--bs-body-bg)`                                                       | Body background color, see also: --card-background-color.                             |
+| `--body-color: var(--bs-body-color)`                                                               | Body text color, see also: --card-color.                                              |
+| `--body-font-family: var(--bs-body-font-family)`                                                   |                                                                                       |
+| `--body-font-size: var(--bs-body-font-size)`                                                       |                                                                                       |
+| `--body-font-weight: var(--bs-body-font-weight)`                                                   |                                                                                       |
+| `--link-color: var(--primary-color)`                                                               | Default link color.                                                                   |
+| `--link-color-hover: var(--primary-color-hover)`                                                   | Default link color, hover.                                                            |
+| `--heading-color: var(--body-color)`                                                               | Default color for headers (h1, h2, ...).                                              |
+| `--card-background-color: #ffffff`                                                                 | Background color for cards.                                                           |
+| `--card-color: var(--body-color)`                                                                  | Text color for cards.                                                                 |
+| `--card-emphasis-color: #000000`                                                                   | Pricing summary on the pricing card on subscription page.                             |
+| `--card-margin: 0 0 1rem 0`                                                                        |                                                                                       |
+| `--card-box-shadow: 0 2px 6px 0 rgba(67, 89, 113, 0.12)`                                           | Box shadow parameter for cards.                                                       |
+| `--card-border-radius: 0.5rem`                                                                     | Border radius for cards.                                                              |
+| `--card-header-border-bottom: 1px solid #f1f1f1`                                                   | The border under card headers.                                                        |
+| `--card-header-margin: 0 0 1.5rem 0`                                                               |                                                                                       |
+| `--card-title-color: #566a7f`                                                                      | Text color of card titles/headers.                                                    |
+| `--menu-background-color: var(--card-background-color)`                                            | Background color for the menu.                                                        |
+| `--menu-color: var(--card-color)`                                                                  | Menu text color.                                                                      |
+| `--menu-app-brand-logo-url: url('/assets/images/logo_noemboss.svg')`                               | URL for the brand logo. Nadles logo by default.                                       |
+| `--menu-app-brand-name-content: attr(data-provider-name)`                                          | Text after the logo. API provider name by default.                                    |
+| `--menu-app-brand-link-color: rgb(63, 57, 90)`                                                     | Logo link text color, when the logo is clickable.                                     |
+| `--menu-app-brand-link-color-hover: var(--menu-app-brand-link-color)`                              | Logo link text color, when the logo is clickable, hover.                              |
+| `--menu-header-color: #a1acb8`                                                                     | Text color of menu header — customer name right under the logo in the menu.           |
+| `--menu-item-color: var(--card-color)`                                                             | Text color of inactive non-link menu item.                                            |
+| `--menu-item-color-hover: var(--card-color)`                                                       | Text color of inactive non-link menu item, hover.                                     |
+| `--menu-item-background-color: var(--card-background-color)`                                       | Background color of `<li>` element in the menu.                                         |
+| `--menu-item-background-color-hover: var(--card-background-color)`                                 | Background color of `<li>` element in the menu, hover.                                  |
+| `--menu-item-link-color: var(--menu-item-color)`                                                   | Text color of links in menu items.                                                    |
+| `--menu-item-link-color-hover: var(--menu-item-color-hover)`                                       | Text color of links in menu items, hover.                                             |
+| `--menu-item-link-background-color: var(--menu-item-background-color)`                             | Background color of links in menu items.                                              |
+| `--menu-item-link-background-color-hover: rgba(67, 89, 113, 0.04)`                                 | Background color of links in menu items, hover.                                       |
+| `--menu-item-active-color: var(--link-color)`                                                      | Text color in active menu items, non-link.                                            |
+| `--menu-item-active-color-hover: var(--link-color-hover)`                                          | Text color in active menu items, non-link, hover.                                     |
+| `--menu-item-active-background-color: var(--card-background-color)`                                | Background color of active `<li>` element in the menu.                                  |
+| `--menu-item-active-background-color-hover: var(--card-background-color)`                          | Background color of active `<li>` element in the menu, hover.                           |
+| `--menu-item-active-link-color: var(--menu-item-active-color)`                                     | Text color of links in active menu items.                                             |
+| `--menu-item-active-link-color-hover: var(--menu-item-active-color-hover)`                         | Text color of links in active menu items, hover.                                      |
+| `--menu-item-active-link-background-color: rgba(105, 108, 255, 0.16)`                              | Background color of links in active menu items.                                       |
+| `--menu-item-active-link-background-color-hover: rgba(105, 108, 255, 0.16)`                        | Background color of links in active menu items, hover.                                |
+| `--menu-item-icon-color: var(--link-color)`                                                        | Menu icons text color.                                                                |
+| `--menu-item-icon-color-hover: var(--link-color-hover)`                                            | Menu icons text color, hover.                                                         |
+| `--menu-item-active-icon-color: var(--link-color)`                                                 | Menu icons text color in active menu items.                                           |
+| `--menu-item-active-icon-color-hover: var(--link-color-hover)`                                     | Menu icons text color in active menu items, hover.                                    |
+| `--menu-item-bullet-color: var(--primary-color)`                                                   | Menu bullet color in active menu items.                                               |
+| `--menu-item-bullet-color-hover: var(--primary-color)`                                             | Menu bullet color in active menu items, hover.                                        |
+| `--navbar-background-color: var(--card-background-color)`                                          | Top navbar background color.                                                          |
+| `--navbar-link-color: var(--card-color)`                                                           | Top navbar link text color.                                                           |
+| `--navbar-link-color-hover: var(--card-color)`                                                     | Top navbar link text color, hover.                                                    |
+| `--navbar-box-shadow: var(--card-box-shadow)`                                                      | Top navbar box shadow.                                                                |
+| `--navbar-dropdown-menu-box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45)`                      | Top navbar dropdown menu box shadow.                                                  |
+| `--navbar-border-radius: var(--card-border-radius)`                                                | Top navbar border radius.                                                             |
+| `--table-header-color: var(--card-title-color)`                                                    | Table headers text color.                                                             |
+| `--table-header-border-bottom: 1px solid #d9dee3`                                                  | Table headers bottom border.                                                          |
+| `--table-row-border: 1px solid #f1f1f166`                                                          | Table row bottom border.                                                              |
+| `--row-background-color-hover: rgba(67, 89, 113, 0.06)`                                            | Table row background color, hover.                                                    |
+| `--row-color-hover: var(--body-color)`                                                             | Table row text color, hover.                                                          |
+| `--transaction-history-posting-positive: rgba(var(--bs-success-rgb), 1)`                           | Text color for transaction history positive items (e.g., + $100)                      |
+| `--transaction-history-posting-negative: rgba(var(--bs-warning-rgb), 1)`                           | Text color for transaction history negative items (e.g., - $50)                       |
+| `--button-color-default: #ffffff`                                                                  | Button text color default.                                                            |
+| `--button-primary-color: var(--button-color-default)`                                              |                                                                                       |
+| `--button-primary-color-hover: var(--button-color-default)`                                        |                                                                                       |
+| `--button-primary-background-color: var(--primary-color)`                                          |                                                                                       |
+| `--button-primary-background-color-hover: var(--primary-color)`                                    |                                                                                       |
+| `--button-primary-border-color: var(--button-primary-background-color)`                            |                                                                                       |
+| `--button-primary-outline-color: var(--button-primary-background-color)`                           |                                                                                       |
+| `--button-primary-outline-color-hover: var(--button-primary-color-hover)`                          |                                                                                       |
+| `--button-primary-outline-background-color: var(--button-primary-color)`                           |                                                                                       |
+| `--button-primary-outline-background-color-hover: var(--button-primary-background-color-hover)`    |                                                                                       |
+| `--button-primary-outline-border-color: var(--button-primary-background-color)`                    |                                                                                       |
+| `--button-secondary-color: var(--button-color-default)`                                            |                                                                                       |
+| `--button-secondary-color-hover: var(--button-color-default)`                                      |                                                                                       |
+| `--button-secondary-background-color: var(--secondary-color)`                                      |                                                                                       |
+| `--button-secondary-background-color-hover: var(--secondary-color)`                                |                                                                                       |
+| `--button-secondary-border-color: var(--button-secondary-background-color)`                        |                                                                                       |
+| `--button-secondary-outline-color: var(--button-secondary-background-color)`                       |                                                                                       |
+| `--button-secondary-outline-color-hover: var(--button-secondary-color)`                            |                                                                                       |
+| `--button-secondary-outline-background-color: var(--button-secondary-color)`                       |                                                                                       |
+| `--button-secondary-outline-background-color-hover: var(--button-secondary-background-color)`      |                                                                                       |
+| `--button-secondary-outline-border-color: var(--button-secondary-background-color)`                |                                                                                       |
+| `--button-dark-color: var(--button-color-default)`                                                 |                                                                                       |
+| `--button-dark-color-hover: var(--button-color-default)`                                           |                                                                                       |
+| `--button-dark-background-color: var(--dark-color)`                                                |                                                                                       |
+| `--button-dark-background-color-hover: var(--dark-color)`                                          |                                                                                       |
+| `--button-dark-border-color: var(--button-dark-background-color)`                                  |                                                                                       |
+| `--button-dark-outline-color: var(--button-dark-background-color)`                                 |                                                                                       |
+| `--button-dark-outline-color-hover: var(--button-dark-color)`                                      |                                                                                       |
+| `--button-dark-outline-background-color: var(--transparent)`                                       |                                                                                       |
+| `--button-dark-outline-background-color-hover: var(--button-dark-background-color)`                |                                                                                       |
+| `--button-dark-outline-border-color: var(--button-dark-background-color)`                          |                                                                                       |
+| `--button-danger-color: var(--button-color-default)`                                               |                                                                                       |
+| `--button-danger-color-hover: var(--button-color-default)`                                         |                                                                                       |
+| `--button-danger-background-color: var(--danger-color)`                                            |                                                                                       |
+| `--button-danger-background-color-hover: var(--danger-color-hover)`                                |                                                                                       |
+| `--button-danger-border-color: var(--button-danger-background-color)`                              |                                                                                       |
+| `--button-danger-outline-color: var(--button-danger-background-color)`                             |                                                                                       |
+| `--button-danger-outline-color-hover: var(--button-danger-color-hover)`                            |                                                                                       |
+| `--button-danger-outline-background-color: var(--button-danger-color)`                             |                                                                                       |
+| `--button-danger-outline-background-color-hover: var(--button-danger-background-color-hover)`      |                                                                                       |
+| `--button-danger-outline-border-color: var(--button-danger-background-color)`                      |                                                                                       |
+| `--input-color: var(--card-color)`                                                                 | Input text color.                                                                     |
+| `--input-background-color: var(--card-background-color)`                                           | Input background color.                                                               |
+| `--input-border-color: #d9dee3`                                                                    | Input border color.                                                                   |
+| `--input-border-color-focus: var(--primary-color)`                                                 | Input border color when focused.                                                      |
+| `--input-group-button-color: var(--input-color)`                                                   | Buttons in input groups text color, e.g., API access URL on checkout pages.           |
+| `--input-group-button-background-color: var(--input-background-color)`                             | Buttons in input groups background color for, e.g., API access URL on checkout pages. |
+| `--product-name-color: var(--card-title-color)`                                                    | Product name text color.                                                              |
+| `--api-header-color: var(--card-title-color)`                                                      | API header text color.                                                                |
+| `--api-icon-color: var(--api-header-color)`                                                        | API header icon color.                                                                |
+| `--modal-content-background-color: var(--card-background-color)`                                   | Modal windows background color.                                                       |
+| `--login-form-bullets-background: `                                                                | Bullets behind the login/registration/password reset forms.                           |
+| `--text-muted-color: #a1acb8;`                                                                     | Muted text color.                                                                     |
