@@ -5,22 +5,56 @@ icon: 'money-check-dollar'
 
 ## Overview
 
-Pricing page replaces the default index page that users see when they have no active subscriptions:
-
-<Frame caption="Default index page">
-![](/images/user-portal/default-index-page.png)
-</Frame>
-
-Pricing page displays your selected produts to registered users when they have no active subscriptions.
-You can configure the order and description for each.
+Pricing page displays your selected products including prices, descriptions, and "Subscribe" buttons.
 
 <Frame caption="Pricing page">
 ![](/images/user-portal/pricing-page.png)
 </Frame>
 
-The pricing page eliminates the need for customers to return to your website from the user portal to select the product to subscribe, which makes the subscription process smoother and increases your conversion rate.
 
-## Add product to the pricing page
+It also replaces the default index page in your user portal that users see when they have no active subscriptions.
+That eliminates the need for customers to return to your website from the user portal to select the product to subscribe, which makes the subscription process smoother and increases your conversion rate.
+
+
+## Public pricing page
+
+The pricing page is also available to non-authenticated users.
+
+If you want to add a pricing page link to your website, use the following URL:
+
+```
+https://<your-user-portal-domain>/pricing/
+```
+
+## Embedded pricing page
+
+If you would like to embed the product list in your website, you can do that by adding 
+
+```?embedded=1``` 
+
+to the pricing page URL, so that the URL looks as follows:
+
+```
+https://<your-user-portal-domain>/pricing/?embedded=1
+```
+
+This removes all elements other than the product list from the pricing page.
+
+```
+<iframe
+    src="https://<your-user-portal-domain>/pricing/?embedded=1"
+    frameborder="0" 
+    width="100%" 
+    height="330px" 
+    style="overflow: hidden;"
+></iframe>
+```
+
+
+
+## Adding products to the pricing page
+
+In order to select a product to be shown on the pricing page, do the following:
 
 * Navigate to **My Products → select product → Settings**.
 
