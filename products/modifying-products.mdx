@@ -18,6 +18,10 @@ When you add a new endpoint to the product or remove an existing one, the follow
 
 * Endpoints added to a product before a subscription is created remain part of the subscription even if the endpoint is later deleted from the product.
 
+* If a new endpoint is added to a billable metric, it is also added to the same billable metric in subscriptions.
+
+* If an existing endpoint is removed from a billable metric, it doesn't get removed from the same billable metric in subscriptions.
+
 ## Adding and removing billable metrics
 
 * If you add new billable metrics/rate limits to the product, they don't appear in the existing subscriptions.
