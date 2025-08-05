@@ -1,0 +1,203 @@
+---
+title: "API"
+icon: 'webhook'
+iconType: 'solid'
+---
+
+The Nadles User Portal includes a built-in API that allows you to programmatically access user portal data directly from within the user portal. This API is ideal for customizing user experiences, building custom dashboards, or integrating client-side tools that require user-specific information.
+
+You can use this API directly in [JavaScript injected into user portal pages](/user-portal/html-and-javascript). All requests are scoped to the currently logged-in user, and no additional authentication is required when used within the portal environment.
+
+## Base URL
+
+```
+https://app.demoapiprovider.eu/api/v0/
+```
+
+### `GET /customer`
+
+Returns the current user's account data.
+
+**Example Request**
+
+```
+GET /api/v0/customer
+```
+
+**Example Response**
+
+```json
+{
+  "id": "5a1ea91e-95bc-4d75-90cd-3714d02a66d8",
+  "name": "Demo Customer",
+  "email": "demo@example.com",
+  "billing_address_line1": "Unter den Linden, 3",
+  "billing_address_line2": null,
+  "billing_address_city": "Berlin",
+  "billing_address_country_code": "DE",
+  "billing_address_zip_code": "10115",
+  "billing_address_region": null,
+  "is_business": true,
+  "business_name": "Muster GmbH",
+  "company_number": "HRB12345",
+  "tax_identifier": "12/345/67890"
+}
+```
+
+
+### `GET /subscriptions/`
+
+Returns a paginated list of the current user’s subscriptions.
+
+**Query Parameters**
+
+| Parameter | Type   | Description                           |
+| --------- | ------ | ------------------------------------- |
+| `state`   | string | Optional. One of `active`, `canceled` |
+| `offset`  | int    | Optional. Pagination offset           |
+| `limit`   | int    | Optional. Max number of results       |
+
+**Example Request**
+
+```
+GET /api/v0/subscriptions/?state=active&offset=0&limit=10
+```
+
+**Example Response**
+
+```json
+{
+  "data": [
+    {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "created_at": "2025-06-25T14:20:00+00:00",
+      "updated_at": "2025-06-25T14:20:00+00:00",
+      "vendor_id": "00000000-0000-0000-0000-000000000000",
+      "product_id": "00000000-0000-0000-0000-000000000000",
+      "customer_id": "00000000-0000-0000-0000-000000000000",
+      "order_id": "00000000-0000-0000-0000-000000000000",
+      "state": "active",
+      "psp_name": "stripe",
+      "billing_version": 2,
+      "is_cancelation_scheduled": false,
+      "items": [
+        {
+          "billing_started_at": "2025-06-25T14:20:00.171519Z",
+          "created_at": "2025-06-25T14:20:00.623556Z",
+          "id": "00000000-0000-0000-0000-000000000000",
+          "next_billed_at": "2025-08-25T14:20:00.171519Z",
+          "price": {
+            "aggregation_period": {
+              "time_unit": "",
+              "value": 0
+            },
+            "base_product_id": "00000000-0000-0000-0000-000000000000",
+            "billing_period": {
+              "time_unit": "month",
+              "value": 1
+            },
+            "created_at": "2025-06-25T14:19:21.71264Z",
+            "currency": "USD",
+            "customer_id": "00000000-0000-0000-0000-000000000000",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "is_metered": false,
+            "is_quantity_adjustable": false,
+            "is_topup_enabled": false,
+            "model": "flat_fee",
+            "name": "Monthly fee",
+            "package_quantity": 0,
+            "parent_id": "00000000-0000-0000-0000-000000000000",
+            "price": "5",
+            "priced_items": [],
+            "product_id": "00000000-0000-0000-0000-000000000000",
+            "quantity": 0,
+            "quantity_adjustment_max": 0,
+            "quantity_adjustment_min": 0,
+            "subscription_id": "00000000-0000-0000-0000-000000000000",
+            "tiers": [],
+            "type": "recurring",
+            "updated_at": "2025-06-25T14:19:21.71264Z",
+            "vendor_id": "00000000-0000-0000-0000-000000000000"
+          },
+          "price_id": "00000000-0000-0000-0000-000000000000",
+          "quantity": "0",
+          "subscription_id": "00000000-0000-0000-0000-000000000000",
+          "updated_at": "2025-07-25T14:20:00.748826Z"
+        }
+      ],
+      "activated_at": "2025-06-25T14:20:00+00:00",
+      "expired_at": null,
+      "cancellation_scheduled_at": null,
+      "canceled_at": null,
+      "past_due_at": null
+    }
+  ],
+  "metadata": {
+    "pagination": {
+      "limit": 50,
+      "offset": 0,
+      "total": 100
+    }
+  }
+}
+```
+
+
+### `GET /subscriptions/{subscriptionId}/access-tokens/`
+
+Returns a list of access tokens for a given subscription.
+
+**Path Parameters**
+
+| Parameter        | Type   | Description            |
+| ---------------- | ------ | ---------------------- |
+| `subscriptionId` | string | ID of the subscription |
+
+**Example Request**
+
+```
+GET /api/v0/subscriptions/00000000-0000-0000-0000-000000000000/access-tokens/
+```
+
+**Example Response**
+
+```json
+{
+  "data": [
+    {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "name": "Production access",
+      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IjEifQ.eyJpc...",
+      "issued_at": "2025-06-25T14:20:01+00:00",
+      "expires_at": null,
+      "is_expired": false
+    }
+  ],
+  "metadata": {
+    "pagination": {
+      "limit": 10,
+      "offset": 0,
+      "total": 1
+    }
+  }
+}
+```
+
+## Using the API
+
+You can call this API from [JavaScript injected into user portal pages](/user-portal/html-and-javascript).
+
+### Example: Fetch current customer data
+
+```javascript
+fetch('/api/v0/customer')
+  .then(res => res.json())
+  .then(data => {
+    console.log("Customer Info:", data);
+  });
+```
+
+## Notes
+- All endpoints are automatically authenticated in the user portal.
+- CORS is fully supported for use in client-side JavaScript within the portal.
+- Responses are JSON-formatted.

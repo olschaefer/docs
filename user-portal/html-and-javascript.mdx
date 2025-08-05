@@ -1,0 +1,69 @@
+---
+title: "HTML and JavaScript"
+icon: 'code'
+iconType: 'solid'
+---
+
+## Custom HTML & JavaScript for User Portals
+
+Nadles allows you to customize your hosted user portal with free-form HTML and JavaScript, enabling deeper branding and functional customization — including analytics, chat widgets, or style overrides.
+
+<Frame>
+<img 
+  src="/images/user-portal/free-form-html.png" 
+  alt="Nadles User Portal — Free-form HTML"
+  noZoom 
+/>
+</Frame>
+
+## Requirements
+
+To enable this feature, you must:
+
+- Have User Portal enabled for your account.
+- Attach a [custom domain](/user-portal/custom-domain) to your portal (e.g., app.yourcompany.com).
+
+Once a custom domain is set up, you’ll be able to inject your own HTML and JavaScript directly into the user-facing portal pages.
+
+## Where Custom Code is Applied
+
+Your HTML and JavaScript will be applied to all pages in the User Portal.
+
+This allows you to fully customize the look, feel, and behavior of the portal experience for your users.
+
+## Security Limitations
+
+To maintain security and prevent misuse, custom HTML and JavaScript are not applied on login, signup, password reset pages and the likes.
+
+These pages are excluded to protect user credentials and prevent potential injection-based attacks.
+
+## How to Add Custom Code
+
+Go to the User Portal section of your Nadles dashboard.
+
+Under Free-form HTML, you’ll find two text areas:
+
+**Position** – Where to inject the code, i.e. after the opening `<head>` tag, before the closing `</head>` tag, etc.
+
+**HTML** – The free-form HTML to be injected into pages.
+
+Save your changes and visit your user portal on the custom domain to see them live.
+
+<Note>
+If you remove your custom domain, the custom code will no longer be applied.
+</Note>
+
+## Advanced Use: Blank Pages + User Portal API
+
+To take customization even further, Nadles allows you to:
+
+Add blank pages to the user portal (fully empty canvas with your styles applied — only menus, headers and footers).
+
+Use the [User Portal API](/user-portal/api) to fetch:
+
+- Current user info
+- Subscription data
+- Access tokens for customer subscriptions
+
+By combining these features, you can build fully interactive, user-aware pages — directly inside the portal.
+

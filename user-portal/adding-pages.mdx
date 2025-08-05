@@ -1,0 +1,69 @@
+---
+title: "Adding pages"
+icon: 'file-plus'
+iconType: 'solid'
+---
+
+You can add fully customized pages to the Nadles User Portal using our built-in dynamic routing system. 
+
+These blank pages inherit your portal's layout, including navigation menus, headers, footers, and brand styling, making them a seamless extension of the existing UI.
+
+<Frame>
+![](/images/user-portal/blank-page.png)
+</Frame>
+
+## URL Pattern
+
+Custom pages are accessible under a special URL pattern:
+
+```
+https://app.yourportaldomain.com/consumer/static/pages/*
+```
+
+Replace the asterisk (`*`) with any path you want. For example:
+
+- `https://app.yourportaldomain.com/consumer/static/pages/help`
+- `https://app.yourportaldomain.com/consumer/static/pages/chat`
+- `https://app.yourportaldomain.com/consumer/static/pages/custom-dashboard`
+
+When a user visits one of these URLs, a blank content area is rendered between the standard user portal layout elements (header, nav, footer). You can then populate this area dynamically [using JavaScript](/user-portal/html-and-javascript).
+
+## How It Works
+
+### 1. Page Detection
+When the page loads, use JavaScript to check the current URL and determine which content should be displayed.
+
+### 2. Inject Custom Content
+Use JavaScript (or a front-end framework like React or Vue) to inject your desired content into the page. You can also interact with the Nadles User Portal API to retrieve customer data, subscription info, or usage stats.
+
+### 3. Consistent Styling
+Your custom content will automatically inherit the styling of your user portal, so it will match the rest of the interface without additional effort.
+
+#### Example
+
+```javascript
+const url = window.location.pathname;
+
+if (url.includes('/consumer/static/pages/help')) {
+  const container = $('div.content-wrapper > div.container-xxl');
+  container.html(`
+    <h2>Help & Support</h2>
+    <p>Here you can find answers to frequently asked questions.</p>
+  `);
+}
+```
+
+## Use Cases
+
+- FAQs / Help Center
+- Custom Dashboards
+- Embedded Widgets
+- Onboarding Tutorials
+- Live Chat or Feedback Forms
+
+## Best Practices
+
+- Always check for URL patterns before injecting content.
+- Keep JavaScript lightweight for fast page loads.
+- Use the [Nadles User Portal API](/user-portal/api) for secure, authenticated access to customer data.
+- Test your custom pages on multiple screen sizes for responsive behavior.

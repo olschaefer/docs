@@ -54,7 +54,8 @@
         "api-management/securing-your-backend",
         "api-management/transformations",
         "api-management/api-key-management",
-        "api-management/nadles-api-gateway"
+        "api-management/nadles-api-gateway",
+        "api-management/nadles-and-ai"
       ]
     },
     {
@@ -90,14 +91,18 @@
         "user-portal/style-user-portal",
         "user-portal/custom-domain",
         "user-portal/checkout-links",
-        "user-portal/pricing-page"
+        "user-portal/pricing-page",
+        "user-portal/html-and-javascript",
+        "user-portal/adding-pages",
+        "user-portal/api"
       ]
     },
     {
       "group": "Subscriptions",
       "pages": [
         "subscriptions/overview",
-        "subscriptions/upgrades-and-downgrades"
+        "subscriptions/upgrades-and-downgrades",
+        "subscriptions/one-time-charges"
       ]
     },
     {
