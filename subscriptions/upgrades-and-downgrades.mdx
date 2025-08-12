@@ -4,7 +4,11 @@ icon: "arrow-up-big-small"
 iconType: "solid"
 ---
 
+## Overview
+
 When you're configuring a product, you can specify, to [which products](/products/create#allow-switching-to-following-products) customers can upgrade and downgrade subscriptions.
+
+The "**Change subscription**" button on the customer subscription dashboard opens a modal window for customers to select the product.
 
 <Frame>
 ![](/images/subscriptions/upgrade-form.png)
@@ -98,3 +102,49 @@ On Feb 1, the customer should be charged \$100 for the next billing period of th
 
 But since there is a remaining credit balance, it is applied to the payment and the actual charge will be `$100 - $32.36 = $67.64`.
 </Info>
+
+
+## Upgrading subscriptions from the API provider control panel
+
+**TL;DR:**
+There are two ways to upgrade a customer’s subscription in Nadles:
+
+**Create an Upgrade Link →** Sends the customer to checkout to confirm and pay if needed.
+
+**Manual Upgrade →** Upgrade directly from the admin panel, only if no payment or payment setup is required.
+
+### Create an upgrade link
+An upgrade link takes customers to the checkout page, where they can review the order and complete the upgrade themselves.
+
+<Frame>
+![](/images/subscriptions/subscription-create-upgrade-link-button.png)
+</Frame>
+
+This approach is especially useful when:
+
+- The upgrade involves a non-catalog, private, or exclusive product not visible in the public portal.
+- You want the customer to explicitly confirm the change and handle any required payment or billing updates.
+
+Once generated, you can send the link to the customer via email, chat, or your support system.
+
+### Manually upgrade the subscription
+
+You can also perform an upgrade directly from the provider admin panel, without requiring the customer to take action.
+
+**Note:** This method works only when the upgrade can be completed without:
+
+- A payment from the customer at the time of upgrade, or
+- The customer needing to set up a payment method.
+
+<Frame>
+![](/images/subscriptions/subscription-upgrade-button-api-provider.png)
+</Frame>
+
+**Example – Suitable Scenario**
+Upgrading a customer from one paid plan to a higher-priced paid plan when their payment method is already on file.
+
+**Example – Scenario Requiring Checkout**
+Upgrading a subscription from a free plan to a paid plan when no payment method is set up yet.
+
+In such cases, you should **[create an upgrade link](#create-an-upgrade-link)** instead, which will guide the customer through the checkout process to add a payment method and complete the upgrade.
+
