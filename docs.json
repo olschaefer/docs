@@ -112,7 +112,7 @@
       },
       {
         "anchor": "Provider API",
-        "icon": "book-open",
+        "icon": "cloud",
         "openapi": {
           "source": "/openapi/provider.api.yaml",
           "directory": "api/provider"
