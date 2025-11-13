@@ -1,0 +1,147 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Nadles Documentation",
+  "colors": {
+    "primary": "#644376",
+    "light": "#07C983",
+    "dark": "#644376"
+  },
+  "favicon": "/favicon.ico",
+  "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Go to website",
+          "href": "https://www.nadles.com/",
+          "icon": "browsers",
+          "color": {
+            "light": "#644376",
+            "dark": "#644376"
+          }
+        }
+      ]
+    },
+    "anchors": [
+      {
+        "anchor": "Documentation",
+        "icon": "book-open",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "introduction",
+              "components",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "API",
+            "pages": [
+              "api-management/add-api",
+              "api-management/settings",
+              "api-management/custom-domain",
+              "api-management/user-authentication",
+              "api-management/securing-your-backend",
+              "api-management/transformations",
+              "api-management/api-key-management",
+              "api-management/nadles-api-gateway",
+              "api-management/nadles-and-ai"
+            ]
+          },
+          {
+            "group": "Products",
+            "pages": [
+              "products/overview",
+              "products/create",
+              "products/billable-metrics",
+              "products/rate-limits",
+              "products/rejection-rules",
+              "products/transformations",
+              "products/modifying-products"
+            ]
+          },
+          {
+            "group": "Prices",
+            "pages": [
+              "pricing/overview",
+              "pricing/create-price"
+            ]
+          },
+          {
+            "group": "Payment integration",
+            "pages": [
+              "payment-integration/stripe",
+              "payment-integration/paddle"
+            ]
+          },
+          {
+            "group": "User portal",
+            "pages": [
+              "user-portal/activate-user-portal",
+              "user-portal/style-user-portal",
+              "user-portal/custom-domain",
+              "user-portal/checkout-links",
+              "user-portal/pricing-page",
+              "user-portal/html-and-javascript",
+              "user-portal/adding-pages",
+              "user-portal/api"
+            ]
+          },
+          {
+            "group": "Subscriptions",
+            "pages": [
+              "subscriptions/overview",
+              "subscriptions/upgrades-and-downgrades",
+              "subscriptions/one-time-charges"
+            ]
+          },
+          {
+            "group": "Analytics",
+            "pages": [
+              "analytics/query-syntax"
+            ]
+          },
+          {
+            "group": "Other",
+            "pages": [
+              "other/faq"
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Provider API",
+        "icon": "book-open",
+        "openapi": {
+          "source": "/openapi/provider.api.yaml",
+          "directory": "api/provider"
+        }
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/logo_noemboss.svg",
+    "dark": "/logo/logo_noemboss.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@nadles.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Sign in",
+      "href": "https://app.nadles.com"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/nadlescom",
+      "linkedin": "https://linkedin.com/company/nadles",
+      "medium": "https://nadles.medium.com/"
+    }
+  }
+}

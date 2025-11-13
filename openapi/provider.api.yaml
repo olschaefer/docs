@@ -1,0 +1,433 @@
+openapi: 3.0.3
+info:
+  title: Nadles Provider API
+  version: '0.1'
+  description: Nadles Provider API allows managing products, customers and subscriptions
+  x-logo:
+    url: ''
+servers:
+  - url: https://provider.api.nadles.com/v0
+    description: ''
+paths:
+  /customers/{customerId}/subscriptions/:
+    get:
+      operationId: listCustomerSubscriptions
+      summary: List customer subscriptions
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          description: The ID of the customer.
+          schema:
+            type: string
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of items to return
+          schema:
+            type: integer
+        - name: offset
+          in: query
+          required: false
+          description: Number of items to skip before starting to collect the result set
+          schema:
+            type: integer
+        - name: state
+          in: query
+          required: false
+          description: Filter subscriptions by state
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCustomerSubscriptions200Response'
+  /customers/{customerId}/subscriptions/{subscriptionId}/access-tokens/:
+    get:
+      operationId: listCustomerSubscriptionAccessTokens
+      summary: List access tokens for subscription
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          description: The ID of the customer.
+          schema:
+            type: string
+        - name: subscriptionId
+          in: path
+          required: true
+          description: The ID of the subscription.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSubscriptionAccessTokensResponse'
+  /subscriptions/{subscriptionId}/product/billable-metrics/:
+    get:
+      operationId: listSubscriptionProductBillableMetrics
+      summary: List subsciption billable metrics and their quotas with curent usage
+      parameters:
+        - name: subscriptionId
+          in: path
+          required: true
+          description: The ID of the subscription.
+          schema:
+            type: string
+        - name: expand
+          schema:
+            enum:
+              - currentUsage
+            type: string
+          in: query
+          required: false
+          allowEmptyValue: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListSubscriptionProductBillableMetricsResponse'
+  /subscriptions/{subscriptionId}/usage-events/:
+    post:
+      operationId: createSubscriptionUsageEvents
+      summary: Create usage events for a subscription
+      parameters:
+        - name: subscriptionId
+          in: path
+          required: true
+          description: The ID of the subscription.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/UsageEvent'
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/UsageEvent'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+  /customers/:
+    get:
+      operationId: listCustomers
+      summary: List customers
+      parameters:
+        - name: id
+          in: query
+          required: false
+          description: Filter by customer ID
+          schema:
+            type: string
+        - name: externalId
+          in: query
+          required: false
+          description: Filter by external ID
+          schema:
+            type: string
+        - name: name
+          in: query
+          required: false
+          description: Filter by customer name
+          schema:
+            type: string
+        - name: email
+          in: query
+          required: false
+          description: Filter by customer email
+          schema:
+            type: string
+        - name: offset
+          in: query
+          required: false
+          description: Number of items to skip before starting to collect the result set
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: limit
+          in: query
+          required: false
+          description: Maximum number of items to return
+          schema:
+            type: integer
+            format: int32
+            default: 25
+        - name: or
+          in: query
+          required: false
+          description: Use OR logic for filters instead of AND
+          schema:
+            type: boolean
+            default: false
+        - name: sort
+          in: query
+          required: false
+          description: Sort order (e.g. created_at desc)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListVendorCustomersResponse'
+  /customers/{customerId}:
+    get:
+      operationId: getCustomer
+      summary: Get customer by ID
+      parameters:
+        - name: customerId
+          in: path
+          required: true
+          description: The ID of the customer.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+components:
+  schemas:
+    ListCustomerSubscriptions200Response:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
+        metadata:
+          $ref: '#/components/schemas/ListCustomerSubscriptions200ResponseMetadata'
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        vendor_id:
+          type: string
+        product_id:
+          type: string
+        customer_id:
+          type: string
+        order_id:
+          type: string
+        state:
+          type: string
+        psp_name:
+          type: string
+        billing_version:
+          type: integer
+        is_cancelation_scheduled:
+          type: boolean
+        items:
+          type: array
+          items:
+            type: object
+        activated_at:
+          type: string
+          format: date-time
+          nullable: true
+        expired_at:
+          type: string
+          format: date-time
+          nullable: true
+        cancellation_scheduled_at:
+          type: string
+          format: date-time
+          nullable: true
+        canceled_at:
+          type: string
+          format: date-time
+          nullable: true
+        past_due_at:
+          type: string
+          format: date-time
+          nullable: true
+    ListCustomerSubscriptions200ResponseMetadata:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/ListCustomerSubscriptions200ResponseMetadataPagination'
+    ListCustomerSubscriptions200ResponseMetadataPagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    ListSubscriptionAccessTokensResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessToken'
+        metadata:
+          $ref: '#/components/schemas/ListCustomerSubscriptions200ResponseMetadata'
+    AccessToken:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+        issued_at:
+          type: string
+          format: date-time
+        expires_at:
+          type: string
+          format: date-time
+          nullable: true
+        is_expired:
+          type: boolean
+    ListSubscriptionProductBillableMetricsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BillableMetricResponseItem'
+    BillableMetricResponseItem:
+      type: object
+      properties:
+        name:
+          type: string
+        label:
+          type: string
+        quotas:
+          type: array
+          items:
+            $ref: '#/components/schemas/BillableMetricQuotaResponseItem'
+    BillableMetricQuotaResponseItem:
+      type: object
+      properties:
+        quota:
+          type: number
+        usage:
+          type: number
+        period:
+          $ref: '#/components/schemas/Period'
+        end:
+          type: string
+          format: date-time
+    Period:
+      type: object
+      properties:
+        unit:
+          type: string
+        value:
+          type: integer
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+        billing_address_line1:
+          type: string
+          nullable: true
+        billing_address_line2:
+          type: string
+          nullable: true
+        billing_address_city:
+          type: string
+          nullable: true
+        billing_address_country_code:
+          type: string
+          nullable: true
+        billing_address_zip_code:
+          type: string
+          nullable: true
+        billing_address_region:
+          type: string
+          nullable: true
+        is_business:
+          type: boolean
+        business_name:
+          type: string
+          nullable: true
+        company_number:
+          type: string
+          nullable: true
+        tax_identifier:
+          type: string
+          nullable: true
+    UsageEvent:
+      type: object
+      properties:
+        request_id:
+          type: string
+          format: uuid
+          nullable: true
+        label:
+          type: string
+        value:
+          type: integer
+          format: int64
+        timestamp:
+          type: string
+          format: date-time
+          nullable: true
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+      required:
+        - label
+        - value
+    ListVendorCustomersResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        metadata:
+          $ref: '#/components/schemas/ListCustomerSubscriptions200ResponseMetadata'
+  securitySchemes:
+    defaultApiKey:
+      description: API key provided in the admin portal
+      type: apiKey
+      name: nadles-provider-key
+      in: header
+  headers: {}
+  parameters: {}
+security:
+  - defaultApiKey: []
+tags: []
