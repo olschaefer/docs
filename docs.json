@@ -78,7 +78,7 @@
           {
             "group": "User portal",
             "pages": [
-              "user-portal/activate-user-portal",
+              "user-portal/getting-started",
               "user-portal/style-user-portal",
               "user-portal/custom-domain",
               "user-portal/checkout-links",

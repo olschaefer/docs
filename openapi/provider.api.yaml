@@ -1,13 +1,13 @@
 openapi: 3.0.3
 info:
   title: Nadles Provider API
-  version: '0.1'
+  version: "0.1"
   description: Nadles Provider API allows managing products, customers and subscriptions
   x-logo:
-    url: ''
+    url: ""
 servers:
   - url: https://provider.api.nadles.com/v0
-    description: ''
+    description: ""
 paths:
   /customers/{customerId}/subscriptions/:
     get:
@@ -39,12 +39,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListCustomerSubscriptions200Response'
+                $ref: "#/components/schemas/ListCustomerSubscriptions200Response"
   /customers/{customerId}/subscriptions/{subscriptionId}/access-tokens/:
     get:
       operationId: listCustomerSubscriptionAccessTokens
@@ -63,16 +63,16 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListSubscriptionAccessTokensResponse'
+                $ref: "#/components/schemas/ListSubscriptionAccessTokensResponse"
   /subscriptions/{subscriptionId}/product/billable-metrics/:
     get:
       operationId: listSubscriptionProductBillableMetrics
-      summary: List subsciption billable metrics and their quotas with curent usage
+      summary: List subsciption billable metrics, quotas and current usage
       parameters:
         - name: subscriptionId
           in: path
@@ -89,12 +89,12 @@ paths:
           required: false
           allowEmptyValue: true
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListSubscriptionProductBillableMetricsResponse'
+                $ref: "#/components/schemas/ListSubscriptionProductBillableMetricsResponse"
   /subscriptions/{subscriptionId}/usage-events/:
     post:
       operationId: createSubscriptionUsageEvents
@@ -112,14 +112,14 @@ paths:
           application/json:
             schema:
               oneOf:
-                - $ref: '#/components/schemas/UsageEvent'
+                - $ref: "#/components/schemas/UsageEvent"
                 - type: array
                   items:
-                    $ref: '#/components/schemas/UsageEvent'
+                    $ref: "#/components/schemas/UsageEvent"
       responses:
-        '200':
+        "200":
           description: OK
-        '400':
+        "400":
           description: Bad Request
   /customers/:
     get:
@@ -180,12 +180,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListVendorCustomersResponse'
+                $ref: "#/components/schemas/ListVendorCustomersResponse"
   /customers/{customerId}:
     get:
       operationId: getCustomer
@@ -198,12 +198,12 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Customer'
+                $ref: "#/components/schemas/Customer"
 components:
   schemas:
     ListCustomerSubscriptions200Response:
@@ -212,9 +212,9 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Subscription'
+            $ref: "#/components/schemas/Subscription"
         metadata:
-          $ref: '#/components/schemas/ListCustomerSubscriptions200ResponseMetadata'
+          $ref: "#/components/schemas/ListCustomerSubscriptions200ResponseMetadata"
     Subscription:
       type: object
       properties:
@@ -270,7 +270,7 @@ components:
       type: object
       properties:
         pagination:
-          $ref: '#/components/schemas/ListCustomerSubscriptions200ResponseMetadataPagination'
+          $ref: "#/components/schemas/ListCustomerSubscriptions200ResponseMetadataPagination"
     ListCustomerSubscriptions200ResponseMetadataPagination:
       type: object
       properties:
@@ -286,9 +286,9 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/AccessToken'
+            $ref: "#/components/schemas/AccessToken"
         metadata:
-          $ref: '#/components/schemas/ListCustomerSubscriptions200ResponseMetadata'
+          $ref: "#/components/schemas/ListCustomerSubscriptions200ResponseMetadata"
     AccessToken:
       type: object
       properties:
@@ -313,7 +313,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/BillableMetricResponseItem'
+            $ref: "#/components/schemas/BillableMetricResponseItem"
     BillableMetricResponseItem:
       type: object
       properties:
@@ -324,7 +324,7 @@ components:
         quotas:
           type: array
           items:
-            $ref: '#/components/schemas/BillableMetricQuotaResponseItem'
+            $ref: "#/components/schemas/BillableMetricQuotaResponseItem"
     BillableMetricQuotaResponseItem:
       type: object
       properties:
@@ -333,7 +333,7 @@ components:
         usage:
           type: number
         period:
-          $ref: '#/components/schemas/Period'
+          $ref: "#/components/schemas/Period"
         end:
           type: string
           format: date-time
@@ -417,9 +417,9 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Customer'
+            $ref: "#/components/schemas/Customer"
         metadata:
-          $ref: '#/components/schemas/ListCustomerSubscriptions200ResponseMetadata'
+          $ref: "#/components/schemas/ListCustomerSubscriptions200ResponseMetadata"
   securitySchemes:
     defaultApiKey:
       description: API key provided in the admin portal

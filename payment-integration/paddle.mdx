@@ -86,6 +86,19 @@ you can use a pre-built payment page provided by Nadles.
 * Done. Now Paddle will redirect your customers to the payment page provided by Nadles.
 * Don't forget to customize the style of your Paddle checkout form to match the user portal. For that, navigate to **Checkout → Checkout settings → Inline**.
 
+#### Apple Pay verification
+
+To verify your user portal domain for Apple Pay with Paddle:
+
+1. In your Paddle dashboard, navigate to **Checkout → Website approval → Apple Pay verification**.
+2. Download the [Apple Pay domain association file](https://developer.paddle.com/assets/files/apple-developer-merchantid-domain-association).
+3. Open the downloaded file and copy its contents.
+4. On Nadles, navigate to **My User Portal → Payment integration**.
+5. Paste the contents of the file into the field called **Apple Developer Merchant ID Domain Association** and save the changes.
+6. Back on Paddle, click **Verify** next to your domain.
+
+Once verified, Apple Pay will be available as a payment method in your checkout.
+
 ### On your website
 
 If you aren't using Nadles User Portal or didn't attach a custom domain to it, you can create a payment page on your website.
