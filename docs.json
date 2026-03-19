@@ -36,6 +36,12 @@
             ]
           },
           {
+            "group": "AI and LLM billing",
+            "pages": [
+              "products/ai-and-llm-billing"
+            ]
+          },
+          {
             "group": "API",
             "pages": [
               "api-management/add-api",
@@ -45,8 +51,7 @@
               "api-management/securing-your-backend",
               "api-management/transformations",
               "api-management/api-key-management",
-              "api-management/nadles-api-gateway",
-              "api-management/nadles-and-ai"
+              "api-management/nadles-api-gateway"
             ]
           },
           {
@@ -143,5 +148,9 @@
       "linkedin": "https://linkedin.com/company/nadles",
       "medium": "https://nadles.medium.com/"
     }
+  },
+  "banner": {
+    "content": "🚀 Nadles can now natively monetize your AI and LLM tokens. Learn how in our new documentation: [How to set up AI billing](/products/ai-and-llm-billing).",
+    "dismissible": true 
   }
 }
