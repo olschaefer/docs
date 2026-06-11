@@ -396,6 +396,7 @@ components:
           nullable: true
         label:
           type: string
+          description: Billable metric label
         value:
           type: integer
           format: int64
